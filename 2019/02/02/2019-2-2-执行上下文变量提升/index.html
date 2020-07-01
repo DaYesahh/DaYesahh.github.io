@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="执行上下文
+执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：
+
+执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为
+执行环境有一个与它关联的对象(变量对象)
+该对象中保存了这个执行环境中所有的变量和函数
+
+
+其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为执行上下文">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>执行上下文变量提升 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="执行上下文 执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：  执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为 执行环境有一个与它关联的对象(变量对象) 该对象中保存了这个执行环境中所有的变量和函数   其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为执行上下文">
+<meta name="keywords" content="执行上下文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="执行上下文变量提升">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="执行上下文 执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：  执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为 执行环境有一个与它关联的对象(变量对象) 该对象中保存了这个执行环境中所有的变量和函数   其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为执行上下文">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="执行上下文变量提升">
+<meta name="twitter:description" content="执行上下文 执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：  执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为 执行环境有一个与它关联的对象(变量对象) 该对象中保存了这个执行环境中所有的变量和函数   其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为执行上下文">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-2019-2-2-执行上下文变量提升" class="post-2019-2-2-执行上下文变量提升 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      执行上下文变量提升
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="ckbettuet000lwcuptfkceeoe" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><ul>
+<li><p>执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：</p>
+<ul>
+<li>执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为</li>
+<li>执行环境有一个与它关联的对象(变量对象)</li>
+<li>该对象中保存了这个执行环境中所有的变量和函数</li>
+</ul>
+</li>
+<li><p>其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为<strong>执行上下文</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>执行上下文的生命周期</p>
+<ul>
+<li><p>进入执行上下文和执行其中的代码</p>
+</li>
+<li><p>进入执行上下文的时候，会用很短的时间对其中的代码进行预编译，其分为三项：</p>
+<ul>
+<li><p>生成变量对象（VO–Variable Object），又包括三项</p>
+<ul>
+<li><p>检索当前环境的参数：创建<code>arguments</code>对象，以参数名为属性名，以参数值为属性值添加到该对象中。如果未传递参数值，则以<code>undefined</code>为值。<code>arguments</code>包括三部分：</p>
+<ul>
+<li><p><code>callee</code>当前函数的引用</p>
+</li>
+<li><p><code>length</code>参数的长度</p>
+</li>
+<li><p><code>properties-indexes</code>：<code>arguments</code>是一个类数组对象，<code>properties</code>可以理解为对象中的每一项，其<code>key</code>就是其位置<code>index的字符串形式</code>，其<code>values</code>就是参数值。可以使用<code>arguments[index]</code>来访问。不过因为是类数组对象，不可以使用数组的那些方法。</p>
+</li>
+<li><p>上述三条，使用代码来演示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">a,b,c</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee) <span class="comment">//[Function:fn1]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length) <span class="comment">// 3</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>) <span class="comment">//&#123; '0': 1, '1': 2, '2': 3 &#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>]) <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>检索当前环境中的函数声明：必须是以function来声明的函数，不可以是函数表达式。会将其函数名为属性名，将其函数地址的引用作为属性值，添加到变量对象中</p>
+</li>
+<li><p>检索当前环境中的变量声明：将其变量名为属性名，变量值为属性值添加到变量对象中。这里要注意，如果变量名（未赋值）与前变量名、参数、函数相同，则忽略此变量名；如果变量名（已赋值）与前边两名、参数、函数相同，则覆盖。（当然此问题不会这么简单，请往下看到活动对象，再回头理解。）</p>
+<p>此条代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(a) <span class="comment">//函数体a</span></span><br><span class="line">          <span class="built_in">console</span>.log(b) <span class="comment">// 20</span></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">//var a = 100</span></span><br><span class="line">         <span class="comment">// console.log(a) // 100</span></span><br><span class="line">          <span class="keyword">var</span> a;</span><br><span class="line">          <span class="built_in">console</span>.log(a) <span class="comment">// 如果未赋值，输出[Function: a];如果赋值则输出100</span></span><br><span class="line">          <span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line">          <span class="built_in">console</span>.log(b) <span class="comment">// 2</span></span><br><span class="line">         &#125;</span><br><span class="line">         test(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line"><span class="comment">// 由上述可知：函数a覆盖了形参a，后面变声声明覆盖了函数a；变量声明b覆盖了形参b。</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上述三条产生的变量对象的代码讲解：</p>
+<p>代码示例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为上面叙述了关于重名的问题，所以这里只做简单的变量对象讲解</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(a)</span><br><span class="line">   <span class="keyword">var</span> c = <span class="number">10</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   	<span class="built_in">console</span>.log(<span class="string">"fn2被执行了"</span>)</span><br><span class="line">   &#125;</span><br><span class="line">   fn2()</span><br><span class="line">&#125;</span><br><span class="line">fn1(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">VO = &#123;</span><br><span class="line">    <span class="built_in">arguments</span>:&#123;</span><br><span class="line">        a:<span class="number">2</span>,</span><br><span class="line">        b:<span class="number">3</span>,</span><br><span class="line">        length:<span class="number">2</span>,</span><br><span class="line">        callee:[<span class="built_in">Function</span>:fn1]</span><br><span class="line">    &#125;,</span><br><span class="line">    c:<span class="literal">undefined</span>,<span class="comment">// 注意这里，变量对象中，声明变量未赋值！！！其实上述所谓的覆盖问题可以理解为在此处忽略，真正的覆盖是在代码执行阶段</span></span><br><span class="line">    fn2:[<span class="function"><span class="keyword">function</span> <span class="title">reference</span>]</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>创建作用域链</p>
+<ul>
+<li>看下方详解作用域</li>
+</ul>
+</li>
+<li><p>确定this的指向</p>
+<p>this的指向，是在函数被调用的时候确定的，也就是执行上下文被创建的时候确定的。</p>
+<p>关于this的指向，主要是三种场景：</p>
+<ul>
+<li><p>全局上下文的this：也就是全局对象（不一定是window哦）</p>
+</li>
+<li><p>函数中的this：如果被调用的函数，被某一个对象所拥有，那么其内部的this指向该对象；如果该函数被独立调用，那么其内部的this指向undefined（非严格模式下指向window）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    fn:fn</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();<span class="comment">// 2</span></span><br><span class="line">fn();<span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数的this：要清除构造函数中this的指向，必须先了解通过new操作符调用构造函数时所经历的阶段：</p>
+<ul>
+<li><p>创建一个新对象</p>
+</li>
+<li><p>将构造函数的this指向这个新对象</p>
+</li>
+<li><p>执行构造函数内部代码</p>
+</li>
+<li><p>返回这个新对象</p>
+<p>由此可知，对于构造函数来说，其内部this指向新创建的对象实例</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>执行阶段</p>
+<ul>
+<li><p>执行阶段变量对象会变成活动对象（<code>AO--Active Object</code>），与变量对象不同的是，其声明的变量会该赋值的赋值，该覆盖的覆盖。所以说，活动对象和变量对象的差别并不大。</p>
+<p>接上述例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    <span class="built_in">arguments</span>:&#123;</span><br><span class="line">        a:<span class="number">2</span>,</span><br><span class="line">        b:<span class="number">3</span>,</span><br><span class="line">        length:<span class="number">2</span>,</span><br><span class="line">        callee:[<span class="built_in">Function</span>:fn1]</span><br><span class="line">    &#125;,</span><br><span class="line">    c:<span class="number">10</span>,<span class="comment">// 注意这里，变量对象中，声明变量未赋值！！！其实上述所谓的覆盖问题可以理解为在此处忽略，真正的覆盖是在代码执行阶段</span></span><br><span class="line">    fn2:[<span class="function"><span class="keyword">function</span> <span class="title">reference</span>]</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>执行上下文的分类：</p>
+<ul>
+<li>全局执行环境：最外围的执行环境，不同的宿主环境表示执行环境的对象也不一样。在Web浏览器中是window<ul>
+<li>js中一切皆对象，则全局变量和函数均可作为全局对象的属性和方法</li>
+</ul>
+</li>
+<li>函数执行环境：这就牵扯到执行上下文的生命周期</li>
+</ul>
+</li>
+<li><p>执行上下文栈</p>
+<ul>
+<li>js代码时按照从上往下执行的，代码最先进入的是全局执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>执行上下文和作用域很多人搞混，主要是其时时刻刻相伴着，比如程序和进程</p>
+<ul>
+<li><p>作用域可以理解为一块代码，编写代码的时候就确定了。其中包含了你所写的变量、常量、函数等等。</p>
+</li>
+<li><p>【此信息来源某文，后来搜了，没再搜到类似言论，不过可以拿来当做理解。】作用域包含了两部分：</p>
+<ul>
+<li>记录作用域内变量信息和代码结构信息的东西，称为<code>Environment Record</code></li>
+<li>一个引用<code>__outer__</code>，这个引用指向当前作用域的父作用。</li>
+</ul>
+</li>
+<li><p>作用域与上下文的区别：</p>
+<ul>
+<li>作用域是在函数定义的时候就确定，而上下文是在函数调用时</li>
+<li>作用域是静态的，只要函数定义好了就存在；上下文是动态的，调用函数时就创建，结束调用就自动释放</li>
+<li>执行上下文从属于作用域。全局上下文环境–》全局作用域，函数上下文环境–》函数作用域</li>
+</ul>
+</li>
+<li><p>作用域链详解：</p>
+<ul>
+<li>参考原型链，当需要查找某个变量或函数时，会在当前上下文的变量对象（活动对象）中进行查找，若是没有找到，则会沿着上层上下文的变量对象进行查找，直到全局上下文中的变量对象（全局对象）。</li>
+<li>其查找的时候所依赖的关系就是作用域链</li>
+<li>每个函数都会有一个[[scope]]内部属性，在函数被声明的时候，该函数[[scope]]属性会保存其上下文的变量对象，形成包含上下文变量对象的层级链。</li>
+</ul>
+</li>
+<li><p>ES6中的块级作用域！</p>
+<ul>
+<li><p>上述可知，js的作用域分为全局作用域和函数作用域。但是没有块级作用域。</p>
+</li>
+<li><p>块级作用域就是在花括号中的代码。js中的if、for、while等都是</p>
+</li>
+<li><p>es5中没有块级作用域的坏处：</p>
+<ul>
+<li><p>在if或者for循环中声明的变量会泄露成全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内层变量可能会覆盖外层变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="string">"aaa"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(temp);</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="string">"bbb"</span></span><br><span class="line">&#125;</span><br><span class="line">f(); <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">// 这里也已经变量提升，上述相当于：</span></span><br><span class="line"><span class="keyword">var</span> temp = <span class="string">"aaa"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp;</span><br><span class="line">    <span class="built_in">console</span>.log(temp) <span class="comment">//所以输出为undefined</span></span><br><span class="line">    temp = <span class="string">"bbb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>es6中添加块级作用域的好处：</p>
+<ul>
+<li>允许块级作用域任意嵌套</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 外层作用域无法读取内层作用域的变量
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">&#123;let tmp = &quot;hello world&quot;&#125;</span><br><span class="line">console.log(tmp) // error</span><br></pre></td></tr></table></figure>
+
+
+- 内层作用域可以定义外层作用域的同名变量
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">let tmp = &quot;hello world&quot;</span><br><span class="line">&#123;let tmp = &quot;hello world&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+
+- 函数本身的作用域在其所在的块级作用域之内
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function f()&#123;</span><br><span class="line">    console.log(&quot;outside&quot;)</span><br><span class="line">&#125;</span><br><span class="line">(function()&#123;</span><br><span class="line">    if(fasle)&#123;</span><br><span class="line">        function f()&#123;</span><br><span class="line">            console.log(&quot;inside&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f();</span><br><span class="line">&#125;())</span><br><span class="line">//这段代码如果是在ES5中运行，那么会输出inside，因为在ES5中，函数会提升到作用域的顶部，如果是在ES6中运行，则会输出outside，因为在ES6中函数无法提升，所以访问到的f()是外层的f()。</span><br></pre></td></tr></table></figure>
+
+
+- 在es5中，因为没有块级作用域，获得广泛运用的是立即执行函数。现在es6增加了块级作用域，那么立即执行函数就不再必要了
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//立即执行函数</span><br><span class="line">(function()&#123;</span><br><span class="line">    var temp = &quot;hello world&quot;;</span><br><span class="line">&#125;());</span><br><span class="line">//块级作用域</span><br><span class="line">&#123;</span><br><span class="line">   var temp = &quot;hello world&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+- 在严格模式下，函数只能在顶级作用域和函数内声明，，在if代码块盒循环代码块下的生命都会报错</code></pre><h2 id="变量及函数提升"><a href="#变量及函数提升" class="headerlink" title="变量及函数提升"></a>变量及函数提升</h2><p>无论是变量提升和函数提升都是将变量或者函数提升到作用域的最顶部。不过<strong>函数提升比变量提升的优先级要高</strong>。</p>
+<p>接下来将是很长很长的代码。</p>
+<ul>
+<li><p><strong>如果变量名（未赋值）与前变量名、参数、函数相同，则忽略此变量名；如果变量名（已赋值）与前边两名、参数、函数相同，则覆盖。</strong> 宝典般的话语啊！！！！</p>
+</li>
+<li><p>变量提升</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function fn1()&#123;</span><br><span class="line">	console.log(a) // undefined</span><br><span class="line">	var a = 10 </span><br><span class="line">	console.log(a) // 10</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br><span class="line">// 上面为什么是undefined，因为上述代码实际上是：</span><br><span class="line">function fn1()&#123;</span><br><span class="line">    var a; // 变量被提升至此，但是只声明，不会赋值。所以输出是undefined,而不是error:a is not defined</span><br><span class="line">    console.log(a) // undefined</span><br><span class="line">    a = 10;</span><br><span class="line">    console.log(a) // 10</span><br><span class="line">&#125;</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 函数提升：这里也是只有函数声明方式才有函数提升，函数表达式没有。</span><br></pre></td></tr></table></figure>
+
+<p>console.log(fn1) // [Function:fn1]<br>console.log(fn2) // undefined</p>
+<p>function fn1(){<br>  console.log(“fn1被调用了”)<br>}<br>console.log(fn1) // [Function:fn1]</p>
+<p>var fn2 = function (){</p>
+<pre><code>console.log(&quot;fn2被调用了&quot;)</code></pre><p>}<br>// 看上面的输出结果就可以发现，函数的提升和变量提升不同。尤其是fn2,输出的是undefined，而不是error。其实这也就类似于变量fn2提升到了上面，但是其未赋值而已，这也就成了变量提升。<br>function fn1(){}<br>console.log(fn1) // [Function:fn1]<br>console.log(fn2) // undefined<br>console.log(fn1) // [Function:fn1]<br>var fn2 = function (){}</p>
+<p>// ！！！上面是输出变量名，下面是进行函数调用<br>fn1() // fn1被调用了<br>//fn2() //fn2 is not a function</p>
+<p>function fn1(){<br>  console.log(“fn1被调用了”)<br>}<br>fn1() // fn1被调用了</p>
+<p>var fn2 = function (){</p>
+<pre><code>console.log(&quot;fn2被调用了&quot;)</code></pre><p>}<br>// 上述代码相当于如下：<br>function fn1(){}<br>fn1() fn1() // fn1被调用了<br>fn2() //fn2 is not a function<br>fn1()  // fn1被调用了<br>var fn2 = function(){}</p>
+<p>// 综上所述：函数表达式的提升按照变量提升来表现，函数名提升了，但是未赋值。所以才会出现console.log(fn2)会输出undefined，而不是报错；但是调用fn2()会出现fn2 is not a function。</p>
+</li>
+</ul>
+<p>  // 增加一个示例：变量名和函数名重名的情况<br>  var xxx = 555;<br>  function fn1(xxx){<br>    console.log(xxx)<br>    var xxx = 888;</p>
+<pre><code>function xxx(){
+   console.log(xxx)
+}
+console.log(xxx)</code></pre><p>  }<br>  fn1(234)<br>  // 上述代码可以理解为：<br>  var xxx = 555;<br>  function fn1(xxx){<br>      function xxx(){ // 函数提升比变量提升优先级高，则先打印function</p>
+<pre><code>}
+var xxx; // 这里虽然是同名，但是其在变量对象中没有值，所以下面打印了function，而后面赋值以后就会覆盖其相同名的function，所以成了8
+console.log(xxx) // function
+xxx = 8;
+console.log(xxx) //8</code></pre><p>  }</p>
+<pre><code>
+
+## 参考
+
+- https://juejin.im/post/5c25bcc8e51d451be35e5b41
+- https://www.jianshu.com/p/dffdbfdfd09b
+- https://www.cnblogs.com/love-life-insist/p/9063104.html
+- https://www.cnblogs.com/sxhlf/p/6726976.html
+- https://www.cnblogs.com/kawask/p/6225317.html
+- https://www.cnblogs.com/luqin/p/5164132.html
+- https://www.cnblogs.com/yezi-dream/p/6168557.html
+
+</code></pre>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/02/2019-2-2-执行上下文变量提升/">
+    <time datetime="2019-02-02T03:57:07.000Z" class="entry-date">
+        2019-02-02
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/执行上下文/">执行上下文</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/02/03/2019-2-3-WebWorker/" rel="prev"><span class="meta-nav">←</span> WebWorker</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/01/31/2019-1-31-数组去重的方法整理/" rel="next">数组去重的方法整理 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="函数执行是先执行函数参数，再执行函数体
+如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错
+“调用记录”，又称“调用帧”。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了调用栈
+函数拥有name属性，可以获取函数名。
+
+默认值">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>函数的扩展 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数执行是先执行函数参数，再执行函数体 如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错 “调用记录”，又称“调用帧”。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了">
+<meta name="keywords" content="函数扩展">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数的扩展">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/05/06/函数的扩展/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="函数执行是先执行函数参数，再执行函数体 如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错 “调用记录”，又称“调用帧”。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数的扩展">
+<meta name="twitter:description" content="函数执行是先执行函数参数，再执行函数体 如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错 “调用记录”，又称“调用帧”。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-函数的扩展" class="post-函数的扩展 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      函数的扩展
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/05/06/函数的扩展/" data-id="ckbettueo000hwcupvv4m79lu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>函数执行是先执行函数参数，再执行函数体</li>
+<li>如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错</li>
+<li><strong>“调用记录”</strong>，又称<strong>“调用帧”</strong>。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了<strong>调用栈</strong></li>
+<li>函数拥有name属性，可以获取函数名。</li>
+</ul>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><a id="more"></a>
+
+<ul>
+<li>普通设置默认值</li>
+<li>解构赋值设置默认值：其中给<strong>解构赋值的属性设置默认值</strong>和<strong>给函数参数设置默认值</strong>之间的区别。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m1</span>(<span class="params">&#123;x = <span class="number">0</span>, y =<span class="number">0</span>&#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x,y];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m2</span>(<span class="params">&#123;x,y&#125; = &#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x,y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">指定默认值以后，函数的length属性、函数参数的length将会失真。即如下：</span><br><span class="line"><span class="keyword">let</span> b = (<span class="function"><span class="keyword">function</span> (<span class="params">a = <span class="number">5</span></span>) </span>&#123; <span class="comment">// 注意这里</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length) <span class="comment">// 注意这里是不会调用的，可能是以为圆括号的问题 </span></span><br><span class="line">&#125;).length</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params">a = <span class="number">5</span></span>) </span>&#123; <span class="comment">// 设置了默认值，但是如果在调用的时候采用test(10)给她传参是话，则结果是和下面test1一样，结果是因为下面是</span></span><br><span class="line">	 <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">	 <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length)</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br><span class="line"><span class="comment">// [Arguments] &#123;&#125;</span></span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span> (<span class="params">a</span>) </span>&#123; <span class="comment">// 这没有设置默认值</span></span><br><span class="line">	 <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">	 <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length)</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">10</span>)  </span><br><span class="line"><span class="comment">// [Arguments] &#123;'0':10&#125;</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>函数的length属性是：<strong><em>该函数预期传入的参数个数</em></strong>。所以length的大小是看调用该函数时传入的参数个数，而不是单纯看函数自己参数默认值的设置。</p>
+<h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...values</span>) </span>&#123; <span class="comment">// 采用...values接收所有参数</span></span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> val <span class="keyword">of</span> values) &#123;</span><br><span class="line">        sum += val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>) <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一、...values与arguments的区别：</span><br><span class="line"><span class="number">1</span>、...values是真正的数组，可以使用数组的所有方法</span><br><span class="line"><span class="number">2</span>、aruments是一个对象数组</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意点<ul>
+<li>rest参数之后不能有其他参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><ul>
+<li><p>箭头函数体内的<code>this</code>对象，是<strong>函数定义时</strong>所在的对象，而不是使用时所在的对象。这是因为箭头函数没有<code>this</code>，不是因为它可以绑定<code>this</code>，所以箭头函数的<code>this</code>便是它定义的外部环境的<code>this</code>，因为没有this，自然不可以调用call、apply、bind来改变this的指向问题。</p>
+</li>
+<li><p>除<code>this</code>外，<code>arguments</code>、<code>super</code>、<code>new.target</code>在箭头函数中也是不存在的，而且会和<code>this</code>一样，指向到定义时的外部环境一样。</p>
+</li>
+<li><p>不可作构造函数，不可以使用<code>new</code>命令</p>
+</li>
+<li><p>不可使用<code>arguments</code>对象，该对象在函数体内不存在，可以用<code>rest</code>参数代替</p>
+</li>
+<li><p>不可使用<code>yield</code>命令，箭头函数不能用作<code>Generator</code>函数</p>
+</li>
+<li><p>关于this对象的举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s2 = <span class="number">8</span>; <span class="comment">// 这里定义没个鸟用，因为调用Timer的是setTimeout，而不是全局</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.s1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">this</span>.s2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s1) <span class="comment">// 0，也就是说这里可以取到值，因为this = timer</span></span><br><span class="line">		<span class="keyword">this</span>.s1++</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s1) <span class="comment">// 1</span></span><br><span class="line">	&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s2) <span class="comment">// undefined，取不到，以为全局下没有这个变量var s2 = 8;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.s1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">this</span>.s2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s1) <span class="comment">// 0，也就是说这里可以取到值，因为this = timer</span></span><br><span class="line">		<span class="keyword">this</span>.s1++</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s1) <span class="comment">// 1</span></span><br><span class="line">	&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">// 为setTimeout，因为是在setTimeout中调用了这个函数</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s2) <span class="comment">// undefined，取不到，以为全局下没有这个变量</span></span><br><span class="line">		<span class="keyword">this</span>.s2++</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s2) <span class="comment">// 后面执行为NaN</span></span><br><span class="line">	&#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s1:'</span>, timer.s1), <span class="number">1000</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s2:'</span>, timer.s2), <span class="number">1000</span>)</span><br><span class="line">		<span class="keyword">this</span>.s2++</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.s2) <span class="comment">// 后面执行为NaN</span></span><br><span class="line">	&#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s1:'</span>, timer.s1), <span class="number">1000</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s2:'</span>, timer.s2), <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多层this的嵌套：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'id:'</span>,<span class="keyword">this</span>.id);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = foo.call(&#123;<span class="attr">id</span>:<span class="number">1</span>&#125;)</span><br><span class="line"><span class="keyword">var</span> t1 = f.call(&#123;<span class="attr">id</span>:<span class="number">2</span>&#125;)()(); <span class="comment">// id:1</span></span><br><span class="line"><span class="keyword">var</span> t2 = f().call(&#123;<span class="attr">id</span>:<span class="number">3</span>&#125;)(); <span class="comment">// id:1</span></span><br><span class="line"><span class="keyword">var</span> t3 = f()().call(&#123;<span class="attr">id</span>:<span class="number">4</span>&#125;); <span class="comment">// id:1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>题外话，这里的call()用法，参考《call()》一文</li>
+</ul>
+</li>
+</ul>
+<h2 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">含义：函数的最后一步是调用另一个函数。不一定是写在函数尾部，一定是最后一步操作，，实际上很大程度上，需要时<span class="keyword">return</span> 某函数，因为<span class="keyword">return</span>真正的结束了这个函数的操作。</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> g(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>尾调用</strong>主要是为了实现<strong>尾调用优化</strong>，实际上是<strong>内存优化</strong>的一种方式。当执行到最后一条语句，也就是执行另一个函数的时候，因为这时候外层函数已经没有用了，不需要再去保存调用位置和变量信息，所以可以释放其调用帧来节省内存，官方语言可以说是该函数的调用帧取代了外层函数的调用帧。</p>
+<p>所以一定要是最后一条执行语句的时候调用函数，否则就不会释放外层函数的调用帧，这样尾调用优化就不能实现，尾调用也失去了意义。</p>
+<h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><p>这个就非常有意义了！不过ES6尾调用优化只在严格模式下才会开启，正常模式下是无效的。所以代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="meta">	'use strict'</span>; <span class="comment">// 如果不加这个，则输出; 如果加上，则报错</span></span><br><span class="line">	<span class="built_in">console</span>.log(test.caller); <span class="comment">// [Function]</span></span><br><span class="line">	<span class="built_in">console</span>.log(test.arguments); <span class="comment">// &#123;'0':1,'1':2&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">以上结果是因为在正常模式下，函数内部有两个变量可以跟踪函数的调用栈。</span></span><br><span class="line"><span class="comment">  - func.arguments: 返回调用时函数的参数。</span></span><br><span class="line"><span class="comment">  - func.caller: 返回调用当前函数的那个函数。</span></span><br><span class="line"><span class="comment">当尾调用优化发生的时候，函数的调用栈会改写，因此上面两个变量会失真，而严格模式下，该变量会被禁用，所以尾调用模式仅在严格模式下生效。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数调用自身称为递归，尾调用自身则是尾递归。因为普通递归需要保存很多调用帧，非常耗费内存，但是<strong>尾递归则只会保存一个调用帧</strong>，大大的节省了内存，其复杂度就是O(1)。</p>
+</li>
+<li><p>ES6中使用尾递归，就不会发生栈溢出（或者层层递归造成的超时），相对节省内存</p>
+</li>
+</ul>
+<h2 id="蹦床函数"><a href="#蹦床函数" class="headerlink" title="蹦床函数"></a>蹦床函数</h2><p>将递归改变为循环执行，并且传递的参数是一个函数，并立即执行它。。。。呃。。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(f &amp;&amp; <span class="keyword">typeof</span> f == <span class="built_in">Function</span>) &#123;</span><br><span class="line">        f = foo()</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/06/函数的扩展/">
+    <time datetime="2019-05-06T05:09:47.000Z" class="entry-date">
+        2019-05-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/es6/">es6</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数扩展/">函数扩展</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/04/15/Promise/" rel="next">Promise <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

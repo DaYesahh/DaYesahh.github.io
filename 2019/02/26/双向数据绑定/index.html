@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。
+解释MVVM双向数据绑定，数据变化更新试图，视图变化更新数据。
+视图变化更新数据可通过事件监听来实现，而关键在于数据变化更新视图。
+如果要实现双向数据绑定，需要四个东东：">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>双向数据绑定 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。 解释MVVM双向数据绑定，数据变化更新试图，视图变化更新数据。 视图变化更新数据可通过事件监听来实现，而关键在于数据变化更新视图。 如果要实现双向数据绑定，需要四个东东：">
+<meta name="keywords" content="双向数据绑定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双向数据绑定">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/02/26/双向数据绑定/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。 解释MVVM双向数据绑定，数据变化更新试图，视图变化更新数据。 视图变化更新数据可通过事件监听来实现，而关键在于数据变化更新视图。 如果要实现双向数据绑定，需要四个东东：">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="d:%5CDaYesahhGit%5CAllForWEB%5CAllForWEB%5Cimage%5Cdefineproperty.jpg">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.640Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="双向数据绑定">
+<meta name="twitter:description" content="采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。 解释MVVM双向数据绑定，数据变化更新试图，视图变化更新数据。 视图变化更新数据可通过事件监听来实现，而关键在于数据变化更新视图。 如果要实现双向数据绑定，需要四个东东：">
+<meta name="twitter:image" content="d:%5CDaYesahhGit%5CAllForWEB%5CAllForWEB%5Cimage%5Cdefineproperty.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-双向数据绑定" class="post-双向数据绑定 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      双向数据绑定
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/双向数据绑定/" data-id="ckbettuem000gwcupez8jymvh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><code>采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。</code></p>
+<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p><code>MVVM</code>双向数据绑定，数据变化更新试图，视图变化更新数据。</p>
+<p>视图变化更新数据可通过<strong>事件监听</strong>来实现，而关键在于数据变化更新视图。</p>
+<p>如果要实现双向数据绑定，需要四个东东：</p>
+<a id="more"></a>
+<ul>
+<li><code>Observer</code>数据监听器：对对象的所有属性进行监听，拿到最新的数据，通知给订阅者；<ul>
+<li>在<code>Observer</code>中通过<code>Object.defineProperty</code>方法，监听对象的所有属性，会<code>new</code>一个新的消息订阅器<code>Dep</code>，在消息订阅器中有订阅者数组，专门用来存储订阅者。当属性值被获取的时候，会添加订阅者进去。而当属性值被修改以后，会调用订阅器中的函数，来通知所有的订阅者。</li>
+</ul>
+</li>
+<li><code>Dep</code>订阅器：用来收集订阅者，管理订阅者和监听器。<ul>
+<li>会遍历订阅者数组，调用订阅者的更新函数。</li>
+</ul>
+</li>
+<li><code>Compiler</code>编译器：对子元素节点的指令进行扫描和解析，根据模板指令替换数据，初始化视图以及绑定相应的回调函数；<ul>
+<li>编译器有两个作用个，一个是解析模板指令，替换模板数据，初始化视图；另一个是将模板指令所在的模板节点绑定更新函数，并且初始化相应的订阅器</li>
+</ul>
+</li>
+<li><code>Watcher</code>订阅者：作为<code>Observer</code>和<code>Compile</code>的桥梁，订阅属性变动的通知，执行指令绑定的回调函数，更新视图。<ul>
+<li>接收三个参数，vue实例，属性名，更新函数。在compiler初始化的时候，根据属性名获取旧的属性值。在被Observer通知调用订阅者的更新函数时，会先获取下最新的属性值，如果旧值与新值不等的话，调用更新函数。</li>
+</ul>
+</li>
+<li><code>MVVM</code>入口：整合三者</li>
+</ul>
+<p>流程图如下：</p>
+<p><img src="D:%5CDaYesahhGit%5CAllForWEB%5CAllForWEB%5Cimage%5Cdefineproperty.jpg" alt></p>
+<h2 id="MVVM-js"><a href="#MVVM-js" class="headerlink" title="MVVM.js"></a>MVVM.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MVVM</span>(<span class="params">options</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$options = options || &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="keyword">this</span>._data = <span class="keyword">this</span>.$options.data;</span><br><span class="line">    <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 数据代理</span></span><br><span class="line">    <span class="comment">// 实现vm.xxx -&gt; vm._data.xxx</span></span><br><span class="line">    <span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">        me._proxyData(keys);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 代理计算属性</span></span><br><span class="line">    <span class="keyword">this</span>._initComputed();</span><br><span class="line">    observe(data,<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.$compile = <span class="keyword">new</span> Compile(options.el || <span class="built_in">document</span>.body,<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">MVVM.prototype = &#123;</span><br><span class="line">    $watch: <span class="function"><span class="keyword">function</span>(<span class="params">key,cb,options</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Watcher(<span class="keyword">this</span>,key,cb)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Observer-js"><a href="#Observer-js" class="headerlink" title="Observer.js"></a><code>Observer.js</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Observer</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        defineReactive(data,key,data[key]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data,key,val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line">    <span class="keyword">var</span> childObj = observe(val);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:<span class="literal">true</span>,</span><br><span class="line">        configurable:<span class="literal">false</span>,</span><br><span class="line">        <span class="keyword">get</span>:function()&#123;</span><br><span class="line">            <span class="keyword">if</span>(Dep.target)&#123;</span><br><span class="line">                dep.depend();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>:function(newVal)&#123;</span><br><span class="line">            <span class="keyword">if</span>(newVal === val)&#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal;</span><br><span class="line">            childObj = observe(newVal);</span><br><span class="line">            dep.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="两种实现双向绑定的机制"><a href="#两种实现双向绑定的机制" class="headerlink" title="两种实现双向绑定的机制"></a>两种实现双向绑定的机制</h2><h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a><code>Object.defineProperty</code></h3><p>虽然核心思想均是采用数据劫持和观察者模式，但是数据劫持的方式可以有<code>Object.defineProperty</code>和<code>proxy</code>，首先是为什么会采用这两种方式？</p>
+<ul>
+<li><p><code>OD</code>是通过劫持的对象以及遍历对象的所有属性实现的，首先在性能上遍落后，而且如果属性值是数组的话，则没办法遍历。因为在vue中，只有八个方法可实现对数组变化的响应：<code>push pop shift unshift splice sort reverse</code>，单纯的下标取数法是响应不了的。</p>
+</li>
+<li><p>又有一种<code>OD</code>实现的双向绑定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 消息管理器，存储订阅者并发布消息</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dep</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>()&#123;</span><br><span class="line">		<span class="comment">// 设置id，用于区分watcher和只改变属性值后新产生的Watcher</span></span><br><span class="line">		<span class="keyword">this</span>.id = uid++;</span><br><span class="line">		<span class="comment">// 存储订阅者的数组</span></span><br><span class="line">		<span class="keyword">this</span>.subs = [];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 触发target上的watcher中的addDep方法，参数为dep的实例本身</span></span><br><span class="line">	depend()&#123;</span><br><span class="line">		<span class="comment">// 把消息管理器传到Watcher那里，然后存储</span></span><br><span class="line">		Dep.target.addDep(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 添加订阅者</span></span><br><span class="line">	addSub(sub)&#123;</span><br><span class="line">		<span class="keyword">this</span>.subs.push(sub)</span><br><span class="line">	&#125;</span><br><span class="line">	notify()&#123;</span><br><span class="line">		<span class="comment">// 循环的方式通知所有的订阅者(Watcher)，触发订阅者的响应逻辑处理</span></span><br><span class="line">		<span class="keyword">this</span>.subs.forEach(<span class="function"><span class="params">sub</span> =&gt;</span> sub.update)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 为Dep类设置一个静态属性，默认为null，工作时指向当前的Watcher</span></span><br><span class="line">Dep.target = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Observer 监听者，监听属性值的变化</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(value)&#123;</span><br><span class="line">		<span class="keyword">this</span>.value = value;</span><br><span class="line">		<span class="keyword">this</span>.walk(value);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 遍历属性值并监听</span></span><br><span class="line">	walk(value)&#123;</span><br><span class="line">		<span class="built_in">Object</span>.keys(value).forEach(<span class="function"><span class="params">key</span> =&gt;</span> <span class="keyword">this</span>.convert(key,value[key]));</span><br><span class="line">	&#125;</span><br><span class="line">	convert(key,value)&#123;</span><br><span class="line">		defineReactive(<span class="keyword">this</span>.value,key,val);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj, key,val</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// 实例化一个消息管理器</span></span><br><span class="line">	<span class="keyword">const</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line">	<span class="comment">// 给当前属性的值添加监听</span></span><br><span class="line">	<span class="keyword">let</span> childOb = observe(val);</span><br><span class="line">	<span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">		enmuerable: <span class="literal">true</span>,</span><br><span class="line">		configurable: <span class="literal">true</span>,</span><br><span class="line">		<span class="keyword">get</span>: () =&gt; &#123;</span><br><span class="line">			<span class="comment">// 如果Dep类存在target属性，则将其添加到dep实例的subs数组中</span></span><br><span class="line">			<span class="comment">// target指向一个Watcher实例，每个Watcher都是一个订阅者</span></span><br><span class="line">			<span class="comment">// Watcher实例在实例化的过程中</span></span><br><span class="line">			<span class="keyword">if</span> (Dep.target) &#123;</span><br><span class="line">				dep.depend();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> val;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>: newVal =&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (val === newVal) <span class="keyword">return</span>;</span><br><span class="line">			val = newVal;</span><br><span class="line">			<span class="comment">// 对新值进行监听；</span></span><br><span class="line">			childOb = observe(newVal);</span><br><span class="line">			dep.notify();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!value || <span class="keyword">typeof</span> value !== <span class="string">'object'</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> Observer(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="comment">//订阅者 Watcher</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Watcher</span></span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(vm, expOrFn, cb)&#123;</span><br><span class="line">		<span class="keyword">this</span>.depIds = &#123;&#125;; <span class="comment">// hash储存订阅者的id，避免重复的订阅者，采用对象是避免重复的key</span></span><br><span class="line">		<span class="keyword">this</span>.vm = vm; <span class="comment">// 被订阅的数据一定来自于当前的Vue实例</span></span><br><span class="line">		<span class="keyword">this</span>.cb = cb; <span class="comment">// 当数据更新时想要做的事情</span></span><br><span class="line">		<span class="keyword">this</span>.expOrFn = expOrFn; <span class="comment">// 被订阅的数据</span></span><br><span class="line">		<span class="keyword">this</span>.val = <span class="keyword">this</span>.get(); <span class="comment">// 维护更新之前的数据</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 对外暴露的接口，用于在订阅的数据被更新时，由订阅者管理员(Dep)调用</span></span><br><span class="line">	update()&#123;</span><br><span class="line">		<span class="keyword">this</span>.run();</span><br><span class="line">	&#125;</span><br><span class="line">	addDep(dep)&#123;</span><br><span class="line">		<span class="comment">// 如果在depIds的hash中没有当前的id，可以判断是新watcher，因此可以添加到dep的数组中存储</span></span><br><span class="line">		<span class="comment">// 此判断是避免同id的Watcher被多次存储</span></span><br><span class="line">		<span class="keyword">if</span> (!<span class="keyword">this</span>.depIds.hasOwnProperty(dep.id)) &#123;</span><br><span class="line">			dep.addSub(<span class="keyword">this</span>);</span><br><span class="line">			<span class="comment">// 把消息管理器放到[]中</span></span><br><span class="line">			<span class="keyword">this</span>.depIds[dep.id] = dep;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	run()&#123;</span><br><span class="line">		<span class="keyword">const</span> val = <span class="keyword">this</span>.get();</span><br><span class="line">		<span class="built_in">console</span>.log(val);</span><br><span class="line">		<span class="keyword">if</span> (val != <span class="keyword">this</span>.val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">            <span class="comment">// 触发当前需要执行的操作，并且传新的参数</span></span><br><span class="line">            <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm,val)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">get</span>()&#123;</span><br><span class="line">		<span class="comment">// 当前订阅者(Watcher)读取被订阅数据的最新更新后的值时，通知订阅者管理员收集当前订阅者</span></span><br><span class="line">		Dep.target = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> val = <span class="keyword">this</span>.vm._data[<span class="keyword">this</span>.expOrFn];</span><br><span class="line">        <span class="comment">// 置空。用于下一个Watcher使用</span></span><br><span class="line">        Dep.target = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a><code>Proxy</code></h3><ul>
+<li><p><code>Proxy</code>直接监听对象，而不是遍历属性。</p>
+</li>
+<li><p>可以检测到数组的变化</p>
+</li>
+<li><p>返回的新的对象，而不是像<code>OD</code>那样，遍历属性，并且直接修改该属性，比较安全。</p>
+</li>
+<li><p>不过因为支持度没有那么好，要在vue3.0上才真正的应用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 极简版</span></span><br><span class="line"><span class="keyword">const</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'input'</span>)</span><br><span class="line"><span class="keyword">const</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>)</span><br><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newObj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function(target, key, receiver) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(target, key, receiver) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(target, key, receiver)</span><br><span class="line">        <span class="keyword">if</span>(key === <span class="string">'text'</span>)&#123;</span><br><span class="line">            input.value = value;</span><br><span class="line">            p.innerHTML = value;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, receiver)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h2><p>根据<a href="https://juejin.im/post/5d421bcf6fb9a06af23853f1#heading-9此篇文章，理解为如下：" target="_blank" rel="noopener">https://juejin.im/post/5d421bcf6fb9a06af23853f1#heading-9此篇文章，理解为如下：</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/26/双向数据绑定/">
+    <time datetime="2019-02-26T03:48:11.000Z" class="entry-date">
+        2019-02-26
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/" rel="prev"><span class="meta-nav">←</span> CSS基础回顾之定位和文档流</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/02/14/2019-2-14-CSS杂记/" rel="next">CSS杂记 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

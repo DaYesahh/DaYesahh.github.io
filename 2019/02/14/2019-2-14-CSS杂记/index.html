@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="渐进增强和优雅降级
+渐进增强
+针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验
+
+优雅降级
+一开始就构建完整的功能，然后再针对低版本浏览器进行兼容
+
+区别：渐进增强是向上兼容，优雅降级是向下兼容
+
+互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始构建完整的表过，根据实际情况，修补低版本浏览器问题">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>CSS杂记 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="渐进增强和优雅降级 渐进增强 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验  优雅降级 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容  区别：渐进增强是向上兼容，优雅降级是向下兼容  互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始">
+<meta name="keywords" content="杂记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS杂记">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="渐进增强和优雅降级 渐进增强 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验  优雅降级 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容  区别：渐进增强是向上兼容，优雅降级是向下兼容  互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS杂记">
+<meta name="twitter:description" content="渐进增强和优雅降级 渐进增强 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验  优雅降级 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容  区别：渐进增强是向上兼容，优雅降级是向下兼容  互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-2019-2-14-CSS杂记" class="post-2019-2-14-CSS杂记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      CSS杂记
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/" data-id="ckbettudw0000wcup470xejps" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="渐进增强和优雅降级"><a href="#渐进增强和优雅降级" class="headerlink" title="渐进增强和优雅降级"></a>渐进增强和优雅降级</h2><ul>
+<li><p>渐进增强</p>
+<p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验</p>
+</li>
+<li><p>优雅降级</p>
+<p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容</p>
+</li>
+<li><p>区别：渐进增强是向上兼容，优雅降级是向下兼容</p>
+</li>
+<li><p>互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始构建完整的表过，根据实际情况，修补低版本浏览器问题</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h2><p>前缀是<code>-webkit-background-size:auto</code>中的<code>-webkit</code>是浏览器前缀。</p>
+<table>
+<thead>
+<tr>
+<th>浏览器前缀</th>
+<th>浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-webkit-</td>
+<td>Google Chrome, Safari, Android Browser</td>
+</tr>
+<tr>
+<td>-moz-</td>
+<td>Firefox</td>
+</tr>
+<tr>
+<td>-o-</td>
+<td>Opera</td>
+</tr>
+<tr>
+<td>-ms-</td>
+<td>Internet Explore, Edge</td>
+</tr>
+<tr>
+<td>-khtml-</td>
+<td>Konqueror</td>
+</tr>
+</tbody></table>
+<p>后面会有常用的解决h5和c3的兼容性解决文件，这里暂时不涉及</p>
+<h2 id="背景渐变"><a href="#背景渐变" class="headerlink" title="背景渐变"></a>背景渐变</h2><p>在线性渐变过程中，颜色沿着一条直线过渡，从左侧到右侧、从右侧到左侧、从顶部到底部、从底部到顶部或沿着任何任意轴。如果你曾使用过制作图软件，比如Photoshop，你对线性渐变并不会陌生。</p>
+<p>兼容性问题很严重，我们这里只讲解线性渐变。</p>
+<p>语法格式：</p>
+<p><code>background:-webkit-linear-gradient(渐变的起始位置,起始颜色,结束颜色);</code></p>
+<p><code>background:-webkit-linear-gradient(渐变的起始位置,颜色 位置,颜色 位置...)</code></p>
+<p>背景渐变必须加前缀，因为兼容性很严重，必须加浏览器的 私有前缀。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">		div &#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 50px;</span><br><span class="line">            background: linear-gradient(top,red,green);</span><br><span class="line">            /*先写普通的，再写私有浏览器的*/</span><br><span class="line">			background: -webkit-linear-gradient(top,red,green);</span><br><span class="line">			margin: 200px auto;</span><br><span class="line">		&#125;</span><br><span class="line">        section &#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 100px;</span><br><span class="line">			margin: 0 auto;</span><br><span class="line">			background: -webkit-linear-gradient(top,red 0%,green 20%, blue 80%);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS-W3C-统一验证工具"><a href="#CSS-W3C-统一验证工具" class="headerlink" title="CSS W3C 统一验证工具"></a>CSS W3C 统一验证工具</h2><p>CssStats是一个在线的CSS代码分析工具</p>
+<p>网址是<code>http://www.cssstats.com/</code></p>
+<p>可以检测CSS是否支持等等，不过是国外的，不咋好使。</p>
+<p>更全面的网站是：W3C统一验证工具：<code>http://validator.w3.org/unicorn/</code></p>
+<p>这个还支持本地等文件上传。</p>
+<h2 id="CSS压缩工具"><a href="#CSS压缩工具" class="headerlink" title="CSS压缩工具"></a>CSS压缩工具</h2><p>为了提高加载速度和节约空间，需要将css进行压缩。</p>
+<p>w3c css压缩<a href="http://tool.chinaz.com/Tools/CssFormat.aspx，网速较慢" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/CssFormat.aspx，网速较慢</a></p>
+<p>楼上还能格式化代码，将压缩后的css格式化成平常用的。</p>
+<h2 id="旋转轮播图"><a href="#旋转轮播图" class="headerlink" title="旋转轮播图"></a>旋转轮播图</h2><p>这个效果用到透视、过渡还有子元素preserve-3d</p>
+<h3 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a>transform-style</h3><p><code>transform-style</code>属性是3D空间一个重要属性，指定嵌套元素如何在3D空间中呈现。他主要有两个属性值：<code>flat</code>和<code>preserve-3d</code>。其中<code>flat</code>值为默认值，表示所有子元素在2D平面呈现。<code>preserve-3d</code>表示所有子元素在3D空间中呈现。</p>
+<p>举例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">	    body &#123;</span><br><span class="line">	    	perspective: 1000;</span><br><span class="line">	    &#125;</span><br><span class="line">		section &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            margin: 100px auto;</span><br><span class="line">            /*用的图片在posts/image中有*/</span><br><span class="line">            background: url(bg.png) no-repeat;</span><br><span class="line">            background-size: cover;</span><br><span class="line">            position: relative;</span><br><span class="line">            transform-style: preserve-3d;</span><br><span class="line">            transition: all 5s linear;</span><br><span class="line">		&#125;</span><br><span class="line">		section:hover &#123;</span><br><span class="line">			transform: rotateY(360deg);</span><br><span class="line">		&#125;</span><br><span class="line">		section div &#123;</span><br><span class="line">			width: 100%;</span><br><span class="line">			height: 100%;</span><br><span class="line">			background: url(lg.gif) no-repeat;</span><br><span class="line">			background-size: cover;</span><br><span class="line">			position: absolute;</span><br><span class="line">			top: 0;</span><br><span class="line">			left: 0;</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(1) &#123;</span><br><span class="line">			transform: rotateY(0deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(2) &#123;</span><br><span class="line">			transform: rotateY(60deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(3) &#123;</span><br><span class="line">			transform: rotateY(120deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(4) &#123;</span><br><span class="line">			transform: rotateY(180deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(5) &#123;</span><br><span class="line">			transform: rotateY(240deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">		section div:nth-child(6) &#123;</span><br><span class="line">			transform: rotateY(300deg) translateZ(400px);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/14/2019-2-14-CSS杂记/">
+    <time datetime="2019-02-14T04:33:43.000Z" class="entry-date">
+        2019-02-14
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂记/">杂记</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/02/26/双向数据绑定/" rel="prev"><span class="meta-nav">←</span> 双向数据绑定</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/02/03/2019-2-3-js异步执行如何工作的/" rel="next">JS异步执行如何工作的 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

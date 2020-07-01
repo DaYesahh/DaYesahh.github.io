@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="只做各方神仙的搬运工一、最笨的方法
+以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好
+
+12345678910111213141516function single(origin) &amp;#123;	var result = [];	var arrayItem, resultItem	for(var i=0; i&amp;lt;origin.length; i++)&amp;#123;		 arrayItem = origin[i]		for(var j=0; j&amp;lt;result.length; j++)&amp;#123;			 resultItem = result[j]			if(resultItem === arrayItem)&amp;#123;			break;		  &amp;#125;		&amp;#125;		if( j === result.length) &amp;#123;			result.push(arrayItem)		&amp;#125;	&amp;#125;&amp;#125;">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>数组去重的方法整理 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="只做各方神仙的搬运工一、最笨的方法 以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好  12345678910111213141516function single(origin) &amp;#123;	var result = [];	var arrayItem, resultItem	for(var i=0; i&amp;lt;origin.length; i++)&amp;">
+<meta name="keywords" content="数组,去重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组去重的方法整理">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="只做各方神仙的搬运工一、最笨的方法 以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好  12345678910111213141516function single(origin) &amp;#123;	var result = [];	var arrayItem, resultItem	for(var i=0; i&amp;lt;origin.length; i++)&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数组去重的方法整理">
+<meta name="twitter:description" content="只做各方神仙的搬运工一、最笨的方法 以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好  12345678910111213141516function single(origin) &amp;#123;	var result = [];	var arrayItem, resultItem	for(var i=0; i&amp;lt;origin.length; i++)&amp;">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-2019-1-31-数组去重的方法整理" class="post-2019-1-31-数组去重的方法整理 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      数组去重的方法整理
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="ckbettueb0007wcupgd66j1v9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="只做各方神仙的搬运工"><a href="#只做各方神仙的搬运工" class="headerlink" title="只做各方神仙的搬运工"></a>只做各方神仙的搬运工</h2><h3 id="一、最笨的方法"><a href="#一、最笨的方法" class="headerlink" title="一、最笨的方法"></a>一、最笨的方法</h3><ul>
+<li>以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result = [];</span><br><span class="line">	<span class="keyword">var</span> arrayItem, resultItem</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;origin.length; i++)&#123;</span><br><span class="line">		 arrayItem = origin[i]</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;result.length; j++)&#123;</span><br><span class="line">			 resultItem = result[j]</span><br><span class="line">			<span class="keyword">if</span>(resultItem === arrayItem)&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		  &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>( j === result.length) &#123;</span><br><span class="line">			result.push(arrayItem)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="二、indexOf方法"><a href="#二、indexOf方法" class="headerlink" title="二、indexOf方法"></a>二、indexOf方法</h3><ul>
+<li>indexOf方法虽然简单，但是数组的indexOf兼容性较差，IE8及以下的浏览器是不支持的，不过可以将其转化为字符串再进行比较。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result = [];</span><br><span class="line">	<span class="keyword">var</span> item</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;origin.length; i++)&#123;</span><br><span class="line">		item = origin[i]</span><br><span class="line">		<span class="keyword">if</span>(result.indexOf(item) === <span class="number">-1</span>) &#123;</span><br><span class="line">			result.push(item)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、数组的filter属性"><a href="#三、数组的filter属性" class="headerlink" title="三、数组的filter属性"></a>三、数组的filter属性</h3><ul>
+<li>filter接收的回调函数参数依次是：item(每一项) index(位置) array(数组自身)</li>
+<li>filter函数接收一个回调函数，会创建自动创建一个新的数组来保存符合条件的项，并且会对数组中每一项进行判断，如果为true则返回给新创建的数组，如果为false则舍弃</li>
+<li>因为indexOf获取的是该item在数组中第一次出现的位置，所以如果这个indexOf得到的位置和自身的位置一样，则表示该值是唯一的。</li>
+<li>该方法的缺点是indexOf是ie9及以上的版本，filter是兼容到ie9，所以只有ie9可以用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">		<span class="comment">// 如果indexOf检索出来的第一个位置，刚好与自身的位置相等的话，就返回</span></span><br><span class="line">		<span class="comment">// 否则就不会被添加到创建的新数组中，所以去重</span></span><br><span class="line">		<span class="keyword">return</span> array.indexOf(item) === index</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、利用Object的key-value"><a href="#四、利用Object的key-value" class="headerlink" title="四、利用Object的key value"></a>四、利用Object的key value</h3><h4 id="1"><a href="#1" class="headerlink" title="1)"></a>1)</h4><ul>
+<li>所有放入hashTable这个对象中的key为origin数组中的项，而且每一个key对应的value为true。所以先判断hashTable的值是否为true，如果为true，则表明此值在hashTable中已存在，不会进入if中执行；如果为false，则表明hashTable中没有这一项，则可以进入执行，将此值放入result中并且在hashTable中设置为true。</li>
+<li>此方法的时间复杂度是O(n)，但是对象的key默认是字符串类型，意味着1和”1”在key中是相等的。此方法不适合在含有字符串和数字混合的去重<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> result = [];</span><br><span class="line"><span class="keyword">var</span> hashTable = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;origin.length; i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!hashTable[origin[i]])&#123;</span><br><span class="line">		hashTable[origin[i]] = <span class="literal">true</span></span><br><span class="line">		result.push(origin[i])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="2）"><a href="#2）" class="headerlink" title="2）"></a>2）</h4><ul>
+<li>方法1的改良版，将key变为数组的项和数据类型拼接的字符串</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result = [];</span><br><span class="line">	<span class="keyword">var</span> hashTable = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;origin.length; i++)&#123;</span><br><span class="line">		<span class="keyword">var</span> current = origin[i]</span><br><span class="line">		<span class="keyword">var</span> key = <span class="keyword">typeof</span>(current) + current</span><br><span class="line">		<span class="keyword">if</span>(!hashTable[key])&#123;</span><br><span class="line">			hashTable[key] = <span class="literal">true</span></span><br><span class="line">			result.push(current)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、数组的sort方法"><a href="#五、数组的sort方法" class="headerlink" title="五、数组的sort方法"></a>五、数组的sort方法</h3><ul>
+<li>sort方法的优点在于利用了排序，返回后一个和前一个不相等的元素。比较简洁和直观，缺点在于改变了元素本来的排序位置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> origin.concat.sort().filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> !index || item!==origin[index<span class="number">-1</span>]</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">	array.sort()</span><br><span class="line">	array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a-b</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(array[i] === array[i]+<span class="number">1</span>)&#123;</span><br><span class="line">			array.splice(i,<span class="number">1</span>)</span><br><span class="line">			i--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、ES6的Set"><a href="#六、ES6的Set" class="headerlink" title="六、ES6的Set"></a>六、ES6的Set</h3><ul>
+<li><p>ES6提供了一个数组结构Set，其特点是类似于数组，其成员的值都是唯一的，没有重复的值。向Set加入值的时候，不会发生类型转变，所以5和’5’是两个不同的值。Set内部判断两个值是否相同，用”===”,但是Set内部认为NaN等于NaN，includes也认为NaN等于NaN</p>
+</li>
+<li><p>ES6提供的数组转化方法Array.from()，将类数组对象或者可遍历的对象转化为一个真正的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(origin))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简单书写方式：两种去重方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一、</span></span><br><span class="line">[...new <span class="built_in">Set</span>(array)] <span class="comment">// 去重</span></span><br><span class="line"><span class="comment">// 二、</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dedupe</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</span><br><span class="line">&#125;</span><br><span class="line">dedupe([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="七、ES6-Map"><a href="#七、ES6-Map" class="headerlink" title="七、ES6 Map"></a>七、ES6 Map</h3><ul>
+<li>Map:其特点可以翻阅《ES6中Map集合》文章</li>
+<li>Map.has(key)是检测指定的key在Map集合中是否已经存在</li>
+<li>Map.set(item,true) 是存储该key和value<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>)</span>&#123;</span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line"><span class="keyword">return</span> origin.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> !map.has(item) &amp;&amp; map.set(item,<span class="literal">true</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>一些常见的数据类型是 <code>===</code> 和 <code>indexOf</code>是无法检测的：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(&#123;&#125; === &#123;&#125;) <span class="comment">// false，新开一个对象，是在新的地址上挖坑，不同地址，肯定不相等</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>) <span class="comment">// false，ES6的includes和set才会判断NaN相等</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/a/</span> === <span class="regexp">/a/</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span> === <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'1'</span>)) <span class="comment">// false，但是如果是==，则相等</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="literal">NaN</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="literal">NaN</span>)) <span class="comment">// -1</span></span><br><span class="line"><span class="comment">// 不过Set中是可以去重NaN的</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/01/31/2019-1-31-数组去重的方法整理/">
+    <time datetime="2019-01-31T04:13:18.000Z" class="entry-date">
+        2019-01-31
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/去重/">去重</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/02/02/2019-2-2-执行上下文变量提升/" rel="prev"><span class="meta-nav">←</span> 执行上下文变量提升</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/01/26/2019-2-1-原型及原型链/" rel="next">原型及原型链 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

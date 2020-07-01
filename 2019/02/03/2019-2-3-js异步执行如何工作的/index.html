@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。
+浏览器有个叫web worker的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。
+web worker的讲解详情请翻看本站其他文章讲解
+几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？
+js引擎线程（解释执行js代码、用户输入、网络请求）
+GUI线程（绘制用户界面、就是我们刚刚说的解析CSS和DOM的，它和js主线程是互斥的）
+http网络请求线程（处理ajax的）
+定时触发器线程（setTimeout、setInterval）
+浏览器事件处理线程（将click、touch放入事件队列中）">
+  
+
+  
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  
+  
+  
+  
+  
+  
+  <title>JS异步执行如何工作的 | DaYesahh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。 浏览器有个叫web worker的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。 web worker的讲解详情请翻看本站其他文章讲解 几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？ js引擎线程（解释执行js代码、用户输入、网">
+<meta name="keywords" content="异步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS异步执行如何工作的">
+<meta property="og:url" content="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/index.html">
+<meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。 浏览器有个叫web worker的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。 web worker的讲解详情请翻看本站其他文章讲解 几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？ js引擎线程（解释执行js代码、用户输入、网">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-05T05:41:47.636Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS异步执行如何工作的">
+<meta name="twitter:description" content="js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。 浏览器有个叫web worker的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。 web worker的讲解详情请翻看本站其他文章讲解 几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？ js引擎线程（解释执行js代码、用户输入、网">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="DaYesahh的博客" rel="home">DaYesahh的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-2019-2-3-js异步执行如何工作的" class="post-2019-2-3-js异步执行如何工作的 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      JS异步执行如何工作的
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/" data-id="ckbettuee000bwcupamfaza5d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。</li>
+<li>浏览器有个叫<code>web worker</code>的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。</li>
+<li><code>web worker</code>的讲解详情请翻看本站其他文章讲解</li>
+<li>几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？<ul>
+<li>js引擎线程（解释执行js代码、用户输入、网络请求）</li>
+<li>GUI线程（绘制用户界面、就是我们刚刚说的解析CSS和DOM的，它和js主线程是互斥的）</li>
+<li>http网络请求线程（处理ajax的）</li>
+<li>定时触发器线程（setTimeout、setInterval）</li>
+<li>浏览器事件处理线程（将click、touch放入事件队列中）<a id="more"></a></li>
+</ul>
+</li>
+<li>浏览器从开始执行遇到script会开启一个宏任务。遇到setTimeour也会开启一个宏任务。遇到ajax请求开启的是一个微任务。只有当一个宏任务所有的同步代码和所有微任务全部代码执行完毕后，浏览器才会开始下一个宏任务。这里的setTimeout属于下一个宏任务。<br>代码举例<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">        <span class="comment">// Promise是属于script这个宏任务的，和console.log一样都是属于Promise的</span></span><br><span class="line">        <span class="keyword">const</span> prom = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">ret, rej</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">            <span class="keyword">const</span> ajax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">            ajax.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            	ret(<span class="number">4</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            ajax.open(<span class="string">"GET"</span>,<span class="string">"https://search-merger-ms.juejin.im/v1/search?query=ajax&amp;page=0&amp;raw_result=false&amp;src=web"</span>,<span class="literal">true</span>);</span><br><span class="line">            ajax.send();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="number">6</span>)</span><br><span class="line">            &#125;, <span class="number">0</span>)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// prom.then()是一个微任务，所以都是属于script这个宏任务，则按照先后顺序执行</span></span><br><span class="line">        prom.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="number">7</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">8</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 3 5 9 4 2 6 8 7</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">- 应用举例：</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 需求：</span></span><br><span class="line"><span class="comment"> obj.eat('a') //立即打印'a'</span></span><br><span class="line"><span class="comment"> obj.stop(3000).eat('a')  //延迟3秒后打印a</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">laz</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">		<span class="keyword">this</span>.tasks = []</span><br><span class="line">		setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.next()</span><br><span class="line">		&#125;,<span class="number">0</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	next () &#123;</span><br><span class="line">		<span class="keyword">let</span> task = <span class="keyword">this</span>.tasks.shift()</span><br><span class="line">		<span class="comment">// 如果task为真，则执行task();如果task为假，则不执行task()</span></span><br><span class="line">		task &amp;&amp; task()</span><br><span class="line">	&#125;</span><br><span class="line">	eat(val) &#123;</span><br><span class="line">		<span class="keyword">const</span> task = <span class="function">(<span class="params">val =&gt; (</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(val)</span><br><span class="line">			<span class="keyword">this</span>.next()</span><br><span class="line">		&#125;)(val)</span><br><span class="line">		<span class="keyword">this</span>.tasks.push(task)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">	stop (time) &#123;</span><br><span class="line">		<span class="keyword">const</span> task = <span class="function">(<span class="params">time =&gt; (</span>) =&gt;</span> &#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(time)</span><br><span class="line">				<span class="keyword">this</span>.next()</span><br><span class="line">			&#125;,time)</span><br><span class="line">		&#125;)(time)</span><br><span class="line">		<span class="keyword">this</span>.tasks.push(task)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> laz()</span><br><span class="line">obj.eat(<span class="string">'a'</span>)</span><br><span class="line">obj.stop(<span class="number">3000</span>).eat(<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/03/2019-2-3-js异步执行如何工作的/">
+    <time datetime="2019-02-03T04:08:16.000Z" class="entry-date">
+        2019-02-03
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/02/14/2019-2-14-CSS杂记/" rel="prev"><span class="meta-nav">←</span> CSS杂记</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/02/03/2019-2-3-WebWorker/" rel="next">WebWorker <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/15/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebWorker/">WebWorker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数扩展/">函数扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链/">原型链</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/去重/">去重</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定位/">定位</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象扩展/">对象扩展</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异步/">异步</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/执行上下文/">执行上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文档流/">文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/WebWorker/" style="font-size: 10px;">WebWorker</a> <a href="/tags/函数扩展/" style="font-size: 10px;">函数扩展</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/去重/" style="font-size: 10px;">去重</a> <a href="/tags/双向数据绑定/" style="font-size: 10px;">双向数据绑定</a> <a href="/tags/定位/" style="font-size: 10px;">定位</a> <a href="/tags/对象扩展/" style="font-size: 10px;">对象扩展</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/执行上下文/" style="font-size: 10px;">执行上下文</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/文档流/" style="font-size: 10px;">文档流</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 Oono sama
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

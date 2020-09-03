@@ -65,6 +65,53 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-木易杨-Daily-155" class="post-木易杨-Daily-155 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/09/03/木易杨-Daily-155/">木易杨_Daily_155</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/03/木易杨-Daily-155/" data-id="ckemre612001spcup8dre1q3m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="第-155-题：求最终-left、right-的宽度"><a href="#第-155-题：求最终-left、right-的宽度" class="headerlink" title="第 155 题：求最终 left、right 的宽度"></a>第 155 题：求最终 left、right 的宽度</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"left"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"right"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style&gt;</span></span><br><span class="line"><span class="regexp">  * &#123;</span></span><br><span class="line"><span class="regexp">    padding: 0;</span></span><br><span class="line"><span class="regexp">    margin: 0;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .container &#123;</span></span><br><span class="line"><span class="regexp">    width: 600px;</span></span><br><span class="line"><span class="regexp">    height: 300px;</span></span><br><span class="line"><span class="regexp">    display: flex;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .left &#123;</span></span><br><span class="line"><span class="regexp">    flex: 1 2 500px;</span></span><br><span class="line"><span class="regexp">    background: red;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .right &#123;</span></span><br><span class="line"><span class="regexp">    flex: 2 1 400px;</span></span><br><span class="line"><span class="regexp">    background: blue;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>错误解： 因为子元素之和 400+500 = 900 &gt; 父元素600<br>所以要按照flex-shrink来计算。<br>900 - 600 = 300<br>300/3 = 100<br>500 - 200== 300<br>400 - 100 = 300</p>
+<p>正确解：<br>总权重 = （子元素宽度 * 子元素收缩系数）之和<br>溢出 = 子元素宽度之和 - 父元素之和<br>子元素收缩比例 = 子元素宽度 * 子项收缩系数 / 总权重<br>收缩宽度= 溢出 * 子元素收缩比例。</p>
+<p>总权重 = 500<em>2 + 400</em>1 = 1400<br>溢出 = 400 + 500 - 600 = 300<br>.left收缩比例 = 500<em>2/1400<br>.left收缩宽度 = 500</em>2<em>300/1400<br>.right收缩比例 = 400</em>1/1400<br>.right收缩宽度 = 300<em>400</em>1/1400<br>最终.left宽度为 500 - 500<em>2</em>300/1400 = 285.71<br>.right宽度为 400 - 300<em>400</em>1/1400 = 314.29<br>以上结果进行过四舍五入。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/09/03/木易杨-Daily-155/">
+    <time datetime="2020-09-03T11:39:00.000Z" class="entry-date">
+        2020-09-03
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-木易杨-Daliy-156" class="post-木易杨-Daliy-156 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +127,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="ckemk2i4a001u5sup06ut7147" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="ckemre610001opcup9d0fp2du" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -125,7 +172,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="ckemk2i3n000v5sup9p8voidw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="ckemre600000cpcuptdj3mz0k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -167,7 +214,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="ckemk2i39000g5supnqhnmluk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="ckemre5zr0006pcup2ks5gtuk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -209,7 +256,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/正则/" data-id="ckemk2i4e001z5supdjq0pdro" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/正则/" data-id="ckemre60z001mpcup7jera0uv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -251,7 +298,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/promise-0/" data-id="ckemk2i43001j5supwdjlt75p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/promise-0/" data-id="ckemre60r0018pcupbih3hf03" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -293,7 +340,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/数组的操作方法/" data-id="ckemk2i47001p5suptuyukfdo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/数组的操作方法/" data-id="ckemre60y001kpcupiubclqbf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -335,7 +382,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/await-async/" data-id="ckemk2i44001l5suptoutmtua" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/await-async/" data-id="ckemre60p0016pcupb50yukyk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -377,7 +424,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/React/" data-id="ckemk2i3v00185supi2gz3xpx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/React/" data-id="ckemre60i000vpcupghnv44i1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -419,7 +466,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Fluent-UI/" data-id="ckemk2i3l000r5supuez479tg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Fluent-UI/" data-id="ckemre607000gpcup6iawhzga" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -432,48 +479,6 @@
     <footer class="entry-meta">
     <a href="/2020/09/02/Fluent-UI/">
     <time datetime="2020-09-02T11:35:51.000Z" class="entry-date">
-        2020-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Webpack" class="post-Webpack post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2020/09/02/Webpack/">Webpack</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Webpack/" data-id="ckemk2i41001h5sup8prlg12b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/09/02/Webpack/">
-    <time datetime="2020-09-02T11:35:16.000Z" class="entry-date">
         2020-09-02
     </time>
 </a>
@@ -524,6 +529,10 @@
       <ul>
         
           <li>
+            <a href="/2020/09/03/木易杨-Daily-155/">木易杨_Daily_155</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/02/木易杨-Daliy-156/">木易杨_Daliy_156</a>
           </li>
         
@@ -537,10 +546,6 @@
         
           <li>
             <a href="/2020/09/02/正则/">正则</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/02/promise-0/">promise</a>
           </li>
         
       </ul>

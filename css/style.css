@@ -83,7 +83,7 @@ http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
 /* =Reset
 -------------------------------------------------------------- */
 * {
-    font-family: Microsoft YaHei;
+    font-family: Consolas;
 }
 Microsoft YaHei,html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
@@ -241,7 +241,7 @@ input,
 textarea {
 	border: 1px solid rgb(162, 230, 247);
 	border-radius: 3px;
-	font-family: Microsoft YaHei,  inherit;
+	font-family: Consolas,  inherit;
 	padding: 6px;
 	padding: 0.428571429rem;
 }
@@ -568,12 +568,12 @@ html {
 body {
 	font-size: 14px;
 	font-size: 1rem;
-	font-family: Microsoft YaHei,  Helvetica, Arial, sans-serif;
+	font-family: Consolas,  Helvetica, Arial, sans-serif;
 	text-rendering: optimizeLegibility;
 	color: rgb(0, 0, 0); /*Article & Widget Content*/
 }
 body.custom-font-enabled {
-	font-family: Microsoft YaHei,  Helvetica, Arial, sans-serif;
+	font-family: Consolas,  Helvetica, Arial, sans-serif;
 	/*All Fonts*/
 }
 a {

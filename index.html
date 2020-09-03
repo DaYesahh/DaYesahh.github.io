@@ -1,20 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: 'location.href', // 可选。默认为 location.href
-  owner: 'DaYesahh',
-  repo: '存储评论的 repo',
-  oauth: {
-    client_id: '8d4c79f9a732210986ea',
-    client_secret: '34b960c4103874795ce1128686465a579fe539af',
-  },
-})
-gitment.render('container')
-</script>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
@@ -80,7 +65,7 @@ gitment.render('container')
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-函数的扩展" class="post-函数的扩展 post type-post status-publish format-standard hentry">
+    <article id="post-木易杨-Daliy-156" class="post-木易杨-Daliy-156 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -88,50 +73,34 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/05/06/函数的扩展/">函数的扩展</a>
+      <a class="article-title" href="/2020/09/02/木易杨-Daliy-156/">木易杨_Daliy_156</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/05/06/函数的扩展/" data-id="ckbettueo000hwcupvv4m79lu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="ckemk2i4a001u5sup06ut7147" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <ul>
-<li>函数执行是先执行函数参数，再执行函数体</li>
-<li>如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错</li>
-<li><strong>“调用记录”</strong>，又称<strong>“调用帧”</strong>。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了<strong>调用栈</strong></li>
-<li>函数拥有name属性，可以获取函数名。</li>
-</ul>
-<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/06/函数的扩展/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
+        <h1 id="第-156-题：求最终-left、right-的宽度"><a href="#第-156-题：求最终-left、right-的宽度" class="headerlink" title="第 156 题：求最终 left、right 的宽度"></a>第 156 题：求最终 left、right 的宽度</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"left"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"right"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style&gt;</span></span><br><span class="line"><span class="regexp">  * &#123;</span></span><br><span class="line"><span class="regexp">    padding: 0;</span></span><br><span class="line"><span class="regexp">    margin: 0;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .container &#123;</span></span><br><span class="line"><span class="regexp">    width: 600px;</span></span><br><span class="line"><span class="regexp">    height: 300px;</span></span><br><span class="line"><span class="regexp">    display: flex;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .left &#123;</span></span><br><span class="line"><span class="regexp">    flex: 1 2 300px;</span></span><br><span class="line"><span class="regexp">    background: red;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .right &#123;</span></span><br><span class="line"><span class="regexp">    flex: 2 1 200px;</span></span><br><span class="line"><span class="regexp">    background: blue;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注：此题和 155 题 left、right 样式有些不同<br>因为300+200小于600，则flex-grow有效，需要计算剩余空间。而如果子元素的综合大于父元素时，需要使用flex-shrink来计算如果缩小。<br>剩余的空间：600 - (300 + 200) = 100。<br>子元素的 flex-grow 的值分别为 1，2， 剩余空间用3等分来分<br>100 / 3 = 33.3333333<br>所以 left = 300 + 1 * 33.33 = 333.33<br>right = 200 + 2 * 33.33 = 266.67</p>
+
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/05/06/函数的扩展/">
-    <time datetime="2019-05-06T05:09:47.000Z" class="entry-date">
-        2019-05-06
+    <a href="/2020/09/02/木易杨-Daliy-156/">
+    <time datetime="2020-09-02T12:04:08.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/es6/">es6</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数扩展/">函数扩展</a></li></ul>
-
     </footer>
 </article>
 
@@ -141,7 +110,7 @@ gitment.render('container')
 
 
   
-    <article id="post-Promise" class="post-Promise post type-post status-publish format-standard hentry">
+    <article id="post-Flex" class="post-Flex post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -149,49 +118,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/04/15/Promise/">Promise</a>
+      <a class="article-title" href="/2020/09/02/Flex/">Flex</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/04/15/Promise/" data-id="ckbettueg000cwcupofh8c42a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="ckemk2i3n000v5sup9p8voidw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>异步编程，是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作），是<strong>对象</strong>，获取异步操作的消息。</p>
-<p>其特点如下：</p>
-<ul>
-<li>对象的状态不受外界影响。<code>Promise</code>对象代表一个<strong>异步操作</strong>，有三种状态：<code>pending(进行中)</code>、<code>fulfilled()已成功</code>和<code>rejected(已失败)</code>。注意：其状态只要异步操作才会使其改变！参考其名字！</li>
-<li>状态一旦改变，就不会再变，任何时候都可以得到这个结果。<code>Promise</code>对象状态改变，两种可能：从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。只要这两种情况发生，状态便凝固了，不会再改变！这时称为<code>resolved(已定型)</code>。如果改变已经发生，即使再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/04/15/Promise/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/04/15/Promise/">
-    <time datetime="2019-04-15T05:06:06.000Z" class="entry-date">
-        2019-04-15
+    <a href="/2020/09/02/Flex/">
+    <time datetime="2020-09-02T11:48:27.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/es6/">es6</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise/">Promise</a></li></ul>
-
     </footer>
 </article>
 
@@ -201,7 +152,7 @@ gitment.render('container')
 
 
   
-    <article id="post-对象扩展" class="post-对象扩展 post type-post status-publish format-standard hentry">
+    <article id="post-CSS" class="post-CSS post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -209,47 +160,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/03/23/对象扩展/">对象扩展</a>
+      <a class="article-title" href="/2020/09/02/CSS/">CSS</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/03/23/对象扩展/" data-id="ckbettuev000owcupv9bakwhy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="ckemk2i39000g5supnqhnmluk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="属性相关"><a href="#属性相关" class="headerlink" title="属性相关"></a>属性相关</h2><h3 id="简洁表示"><a href="#简洁表示" class="headerlink" title="简洁表示"></a>简洁表示</h3><ul>
-<li>可直接写入变量和函数，作为属性和方法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性简写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;x, y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;<span class="attr">x</span>: x, <span class="attr">y</span>: y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法简写，注意，只有方法的简写方式才会被js引擎确认对定义的是对象的方法</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  method() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  method: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 以下两种方式均为定义一个方法然后赋给foo属性</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    foo:<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">super</span>.foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    foo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.foo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/03/23/对象扩展/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/03/23/对象扩展/">
-    <time datetime="2019-03-23T04:44:33.000Z" class="entry-date">
-        2019-03-23
+    <a href="/2020/09/02/CSS/">
+    <time datetime="2020-09-02T11:48:15.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/es6/">es6</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象扩展/">对象扩展</a></li></ul>
-
     </footer>
 </article>
 
@@ -259,7 +194,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-2-11-CSS基础回顾之定位和文档流" class="post-2019-2-11-CSS基础回顾之定位和文档流 post type-post status-publish format-standard hentry">
+    <article id="post-正则" class="post-正则 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -267,56 +202,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+      <a class="article-title" href="/2020/09/02/正则/">正则</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/" data-id="ckbettue80005wcuplnf1upxn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/正则/" data-id="ckemk2i4e001z5supdjq0pdro" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h2><ul>
-<li><p>所谓的标准文档流就是浏览器默认的排版方式，注意，这是一种排版方式。</p>
-</li>
-<li><p>说道排版，便有行内元素和块级元素的不同。其区别和注意事项，请看下面知识点。</p>
-</li>
-<li><p>标准文档流注意事项：</p>
-<ul>
-<li><p>空白折叠现象。比如，如果我们想让img标签之间没有空隙，必须紧密相连。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;img/00.jpg&quot; /&gt;&lt;img src=&quot;img/02.jpg&quot; /&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>高矮不齐，底边对齐</p>
-</li>
-<li><p>自动换行，一行写不完，换行写</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">
-    <time datetime="2019-02-26T04:23:14.000Z" class="entry-date">
-        2019-02-26
+    <a href="/2020/09/02/正则/">
+    <time datetime="2020-09-02T11:47:43.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/定位/">定位</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文档流/">文档流</a></li></ul>
-
     </footer>
 </article>
 
@@ -326,7 +236,7 @@ gitment.render('container')
 
 
   
-    <article id="post-双向数据绑定" class="post-双向数据绑定 post type-post status-publish format-standard hentry">
+    <article id="post-promise-0" class="post-promise-0 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -334,47 +244,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+      <a class="article-title" href="/2020/09/02/promise-0/">promise</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/双向数据绑定/" data-id="ckbettuem000gwcupez8jymvh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/promise-0/" data-id="ckemk2i43001j5supwdjlt75p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p><code>采用数据劫持结合发布者订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter和getter，数据变动时发布消息给订阅者，触发相应函数的回调。</code></p>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p><code>MVVM</code>双向数据绑定，数据变化更新试图，视图变化更新数据。</p>
-<p>视图变化更新数据可通过<strong>事件监听</strong>来实现，而关键在于数据变化更新视图。</p>
-<p>如果要实现双向数据绑定，需要四个东东：</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/02/26/双向数据绑定/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/26/双向数据绑定/">
-    <time datetime="2019-02-26T03:48:11.000Z" class="entry-date">
-        2019-02-26
+    <a href="/2020/09/02/promise-0/">
+    <time datetime="2020-09-02T11:47:08.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双向数据绑定/">双向数据绑定</a></li></ul>
-
     </footer>
 </article>
 
@@ -384,7 +278,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-2-14-CSS杂记" class="post-2019-2-14-CSS杂记 post type-post status-publish format-standard hentry">
+    <article id="post-数组的操作方法" class="post-数组的操作方法 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -392,55 +286,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/14/2019-2-14-CSS杂记/">CSS杂记</a>
+      <a class="article-title" href="/2020/09/02/数组的操作方法/">数组的操作方法</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/" data-id="ckbettudw0000wcup470xejps" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/数组的操作方法/" data-id="ckemk2i47001p5suptuyukfdo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="渐进增强和优雅降级"><a href="#渐进增强和优雅降级" class="headerlink" title="渐进增强和优雅降级"></a>渐进增强和优雅降级</h2><ul>
-<li><p>渐进增强</p>
-<p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验</p>
-</li>
-<li><p>优雅降级</p>
-<p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容</p>
-</li>
-<li><p>区别：渐进增强是向上兼容，优雅降级是向下兼容</p>
-</li>
-<li><p>互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始构建完整的表过，根据实际情况，修补低版本浏览器问题</p>
-</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/02/14/2019-2-14-CSS杂记/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/14/2019-2-14-CSS杂记/">
-    <time datetime="2019-02-14T04:33:43.000Z" class="entry-date">
-        2019-02-14
+    <a href="/2020/09/02/数组的操作方法/">
+    <time datetime="2020-09-02T11:46:58.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂记/">杂记</a></li></ul>
-
     </footer>
 </article>
 
@@ -450,7 +320,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-2-3-js异步执行如何工作的" class="post-2019-2-3-js异步执行如何工作的 post type-post status-publish format-standard hentry">
+    <article id="post-await-async" class="post-await-async post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -458,53 +328,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/03/2019-2-3-js异步执行如何工作的/">JS异步执行如何工作的</a>
+      <a class="article-title" href="/2020/09/02/await-async/">await/async</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/" data-id="ckbettuee000bwcupamfaza5d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/await-async/" data-id="ckemk2i44001l5suptoutmtua" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <ul>
-<li>js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。</li>
-<li>浏览器有个叫<code>web worker</code>的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。</li>
-<li><code>web worker</code>的讲解详情请翻看本站其他文章讲解</li>
-<li>几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？<ul>
-<li>js引擎线程（解释执行js代码、用户输入、网络请求）</li>
-<li>GUI线程（绘制用户界面、就是我们刚刚说的解析CSS和DOM的，它和js主线程是互斥的）</li>
-<li>http网络请求线程（处理ajax的）</li>
-<li>定时触发器线程（setTimeout、setInterval）</li>
-<li>浏览器事件处理线程（将click、touch放入事件队列中）
-        
-          <p class="article-more-link">
-            <a href="/2019/02/03/2019-2-3-js异步执行如何工作的/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/03/2019-2-3-js异步执行如何工作的/">
-    <time datetime="2019-02-03T04:08:16.000Z" class="entry-date">
-        2019-02-03
+    <a href="/2020/09/02/await-async/">
+    <time datetime="2020-09-02T11:46:35.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/js/">js</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li></ul>
-
     </footer>
 </article>
 
@@ -514,7 +362,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-2-3-WebWorker" class="post-2019-2-3-WebWorker post type-post status-publish format-standard hentry">
+    <article id="post-React" class="post-React post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -522,49 +370,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/03/2019-2-3-WebWorker/">WebWorker</a>
+      <a class="article-title" href="/2020/09/02/React/">React</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-WebWorker/" data-id="ckbettue90006wcupr32zjtqf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/React/" data-id="ckemk2i3v00185supi2gz3xpx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <ul>
-<li>前面在《js异步执行如何工作的》一文中简单提到，因为js是单线程的，在如今这种高密度的计算中，显然有些吃力。于是，浏览器积极发展多线程，来弥补js单线程的不足。而Web Worker就是其中一种机制。<br>既然是一种多线程机制，那么它是怎么工作的呢？</li>
-<li>简单的说，Web Worker是运行在后台的。为什么这么说？js是一种单线程机制，那么其就有一个主线程。而主线程可以创建Worker线程，将一些任务分配给后者运行。那跟人家主线程相比，Web Worker可不就是运行在后台。</li>
-<li>更巧妙的是，Worker是独立于其他脚本的，不会影响页面的性能，跟主线程互不干扰。除了两者之间进行消息沟通。</li>
-<li>互不干扰的意思是不会被主线程上的活动给打断，比如主线程要进行用户点击、提交表单等等。不是不会进行通信的意思哦。</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/02/03/2019-2-3-WebWorker/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/03/2019-2-3-WebWorker/">
-    <time datetime="2019-02-03T04:03:42.000Z" class="entry-date">
-        2019-02-03
+    <a href="/2020/09/02/React/">
+    <time datetime="2020-09-02T11:45:41.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/js/">js</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebWorker/">WebWorker</a></li></ul>
-
     </footer>
 </article>
 
@@ -574,7 +404,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-2-2-执行上下文变量提升" class="post-2019-2-2-执行上下文变量提升 post type-post status-publish format-standard hentry">
+    <article id="post-Fluent-UI" class="post-Fluent-UI post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -582,54 +412,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/02/02/2019-2-2-执行上下文变量提升/">执行上下文变量提升</a>
+      <a class="article-title" href="/2020/09/02/Fluent-UI/">Fluent_UI</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="ckbettuet000lwcuptfkceeoe" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Fluent-UI/" data-id="ckemk2i3l000r5supuez479tg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><ul>
-<li><p>执行上下文相当于执行环境，在《Javascipt高级程序设计》中关于执行环境是这么描述的：</p>
-<ul>
-<li>执行环境定义了变量有权访问的其他数据，并决定了他们各自的行为</li>
-<li>执行环境有一个与它关联的对象(变量对象)</li>
-<li>该对象中保存了这个执行环境中所有的变量和函数</li>
-</ul>
-</li>
-<li><p>其实书中所写可以理解为：每一次代码执行都会产生一个执行环境，该环境称为<strong>执行上下文</strong></p>
-</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/02/02/2019-2-2-执行上下文变量提升/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/02/02/2019-2-2-执行上下文变量提升/">
-    <time datetime="2019-02-02T03:57:07.000Z" class="entry-date">
-        2019-02-02
+    <a href="/2020/09/02/Fluent-UI/">
+    <time datetime="2020-09-02T11:35:51.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/js/">js</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/执行上下文/">执行上下文</a></li></ul>
-
     </footer>
 </article>
 
@@ -639,7 +446,7 @@ gitment.render('container')
 
 
   
-    <article id="post-2019-1-31-数组去重的方法整理" class="post-2019-1-31-数组去重的方法整理 post type-post status-publish format-standard hentry">
+    <article id="post-Webpack" class="post-Webpack post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -647,47 +454,31 @@ gitment.render('container')
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/01/31/2019-1-31-数组去重的方法整理/">数组去重的方法整理</a>
+      <a class="article-title" href="/2020/09/02/Webpack/">Webpack</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="ckbettueb0007wcupgd66j1v9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Webpack/" data-id="ckemk2i41001h5sup8prlg12b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="只做各方神仙的搬运工"><a href="#只做各方神仙的搬运工" class="headerlink" title="只做各方神仙的搬运工"></a>只做各方神仙的搬运工</h2><h3 id="一、最笨的方法"><a href="#一、最笨的方法" class="headerlink" title="一、最笨的方法"></a>一、最笨的方法</h3><ul>
-<li>以下方法是基础的方法，但是时间复杂度为O(n2),性能很差。不过相较于其他方法，兼容性很好</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">single</span>(<span class="params">origin</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result = [];</span><br><span class="line">	<span class="keyword">var</span> arrayItem, resultItem</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;origin.length; i++)&#123;</span><br><span class="line">		 arrayItem = origin[i]</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;result.length; j++)&#123;</span><br><span class="line">			 resultItem = result[j]</span><br><span class="line">			<span class="keyword">if</span>(resultItem === arrayItem)&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		  &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>( j === result.length) &#123;</span><br><span class="line">			result.push(arrayItem)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/01/31/2019-1-31-数组去重的方法整理/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/01/31/2019-1-31-数组去重的方法整理/">
-    <time datetime="2019-01-31T04:13:18.000Z" class="entry-date">
-        2019-01-31
+    <a href="/2020/09/02/Webpack/">
+    <time datetime="2020-09-02T11:35:16.000Z" class="entry-date">
+        2020-09-02
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/js/">js</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/去重/">去重</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
-
     </footer>
 </article>
 
@@ -700,7 +491,7 @@ gitment.render('container')
   
     <nav id="pagination">
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -721,7 +512,7 @@ gitment.render('container')
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -733,23 +524,23 @@ gitment.render('container')
       <ul>
         
           <li>
-            <a href="/2019/05/06/函数的扩展/">函数的扩展</a>
+            <a href="/2020/09/02/木易杨-Daliy-156/">木易杨_Daliy_156</a>
           </li>
         
           <li>
-            <a href="/2019/04/15/Promise/">Promise</a>
+            <a href="/2020/09/02/Flex/">Flex</a>
           </li>
         
           <li>
-            <a href="/2019/03/23/对象扩展/">对象扩展</a>
+            <a href="/2020/09/02/CSS/">CSS</a>
           </li>
         
           <li>
-            <a href="/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/">CSS基础回顾之定位和文档流</a>
+            <a href="/2020/09/02/正则/">正则</a>
           </li>
         
           <li>
-            <a href="/2019/02/26/双向数据绑定/">双向数据绑定</a>
+            <a href="/2020/09/02/promise-0/">promise</a>
           </li>
         
       </ul>

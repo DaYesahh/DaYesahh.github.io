@@ -65,6 +65,53 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="posts-木易杨-Daily-160" class="posts-木易杨-Daily-160 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/09/08/木易杨-Daily-160/">木易杨-Daily-160</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/08/木易杨-Daily-160/" data-id="cketwjjnc0022n4upg7o181ao" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="第-160-题：输出以下代码运行结果，为什么？如果希望每隔-1s-输出一个结果，应该如何改造？注意不可改动-square-方法"><a href="#第-160-题：输出以下代码运行结果，为什么？如果希望每隔-1s-输出一个结果，应该如何改造？注意不可改动-square-方法" class="headerlink" title="第 160 题：输出以下代码运行结果，为什么？如果希望每隔 1s 输出一个结果，应该如何改造？注意不可改动 square 方法"></a>第 160 题：输出以下代码运行结果，为什么？如果希望每隔 1s 输出一个结果，应该如何改造？注意不可改动 square 方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">num</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(num * num)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  list.forEach(<span class="keyword">async</span> x=&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> square(x)</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">num</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">//  console.log(new Date().getSeconds())</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds())</span><br><span class="line">      resolve(num * num)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> list) &#123;</span><br><span class="line">         <span class="keyword">const</span> res = <span class="keyword">await</span> square(item)</span><br><span class="line">         <span class="built_in">console</span>.log(res)	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<p>解释：<br>因为forEach是默认请求并发发起的，所以不能阻塞。可以吧forEach换掉，换成for of或者普通的for循环。<br>具体参考官网：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach</a><br>其中解释道：‘除了抛出异常以外，没有办法中止或跳出 forEach() 循环。如果你需要中止或跳出循环，forEach() 方法不是应当使用的工具。’</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/09/08/木易杨-Daily-160/">
+    <time datetime="2020-09-08T11:41:53.000Z" class="entry-date">
+        2020-09-08
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-木易杨-Daily-155" class="post-木易杨-Daily-155 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +127,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/03/木易杨-Daily-155/" data-id="ckemre612001spcup8dre1q3m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/03/木易杨-Daily-155/" data-id="cketwjjn9001zn4up3b9jvmd2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -127,7 +174,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="ckemre610001opcup9d0fp2du" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="cketwjjnf0027n4ups4rmjav7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -172,7 +219,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="ckemre600000cpcuptdj3mz0k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="cketwjjme000nn4upr8mxji34" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -214,7 +261,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="ckemre5zr0006pcup2ks5gtuk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="cketwjjly0009n4upqj81bys9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -256,7 +303,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/正则/" data-id="ckemre60z001mpcup7jera0uv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/正则/" data-id="cketwjjng0028n4up90wjfo06" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -298,7 +345,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/promise-0/" data-id="ckemre60r0018pcupbih3hf03" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/promise-0/" data-id="cketwjjn0001ln4uph8foeyn4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -340,7 +387,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/数组的操作方法/" data-id="ckemre60y001kpcupiubclqbf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/数组的操作方法/" data-id="cketwjjn4001sn4up60jp1ycc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -382,7 +429,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/await-async/" data-id="ckemre60p0016pcupb50yukyk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/await-async/" data-id="cketwjjmy001hn4up4i2h6c6i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -424,61 +471,26 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/React/" data-id="ckemre60i000vpcupghnv44i1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/React/" data-id="cketwjjmu001an4updxjf0rlb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        
+        <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><p>此处只写一些不好具体分来的点儿，详情请看其他文章。</p>
+<h2 id="React基本要素"><a href="#React基本要素" class="headerlink" title="React基本要素"></a>React基本要素</h2><p>从React官网中可以看出，React的基本要素可以分为以下几类。</p>
+<ul>
+<li>JSX</li>
+<li>组件 &amp;Props</li>
+<li>State &amp; 声明周期</li>
+</ul>
+
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
     <a href="/2020/09/02/React/">
     <time datetime="2020-09-02T11:45:41.000Z" class="entry-date">
-        2020-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Fluent-UI" class="post-Fluent-UI post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2020/09/02/Fluent-UI/">Fluent_UI</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Fluent-UI/" data-id="ckemre607000gpcup6iawhzga" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/09/02/Fluent-UI/">
-    <time datetime="2020-09-02T11:35:51.000Z" class="entry-date">
         2020-09-02
     </time>
 </a>
@@ -529,6 +541,10 @@
       <ul>
         
           <li>
+            <a href="/2020/09/08/木易杨-Daily-160/">木易杨-Daily-160</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/03/木易杨-Daily-155/">木易杨_Daily_155</a>
           </li>
         
@@ -542,10 +558,6 @@
         
           <li>
             <a href="/2020/09/02/CSS/">CSS</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/02/正则/">正则</a>
           </li>
         
       </ul>

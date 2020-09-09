@@ -65,6 +65,196 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-2019-2-14-CSS杂记" class="post-2019-2-14-CSS杂记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/02/14/2019-2-14-CSS杂记/">CSS杂记</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/" data-id="ckevc6d620006dkupo7q88dct" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="渐进增强和优雅降级"><a href="#渐进增强和优雅降级" class="headerlink" title="渐进增强和优雅降级"></a>渐进增强和优雅降级</h2><ul>
+<li><p>渐进增强</p>
+<p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验</p>
+</li>
+<li><p>优雅降级</p>
+<p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容</p>
+</li>
+<li><p>区别：渐进增强是向上兼容，优雅降级是向下兼容</p>
+</li>
+<li><p>互联网发展很快，连微软公司都抛弃了ie李兰器，转而支持edge这样的高版本浏览器，很多情况下没有必要再时刻想着低版本浏览器，而是一开始构建完整的表过，根据实际情况，修补低版本浏览器问题</p>
+</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/14/2019-2-14-CSS杂记/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/14/2019-2-14-CSS杂记/">
+    <time datetime="2019-02-14T04:33:43.000Z" class="entry-date">
+        2019-02-14
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂记/">杂记</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2019-2-3-js异步执行如何工作的" class="post-2019-2-3-js异步执行如何工作的 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/02/03/2019-2-3-js异步执行如何工作的/">JS异步执行如何工作的</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/" data-id="ckevc6d6h000odkupsfm439yl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>js是单线程的工作机制，不过浏览器是多线程的，所以不要担心单线程的js是不是落后，反正有浏览器帮衬。</li>
+<li>浏览器有个叫<code>web worker</code>的东西，可以让浏览器开出一个Worker线程，通过接受发送消息和主线程交互，并且和主线程不冲突的执行。</li>
+<li><code>web worker</code>的讲解详情请翻看本站其他文章讲解</li>
+<li>几乎现在的主流语言都有同步和异步问题，那么js的异步有哪些？<ul>
+<li>js引擎线程（解释执行js代码、用户输入、网络请求）</li>
+<li>GUI线程（绘制用户界面、就是我们刚刚说的解析CSS和DOM的，它和js主线程是互斥的）</li>
+<li>http网络请求线程（处理ajax的）</li>
+<li>定时触发器线程（setTimeout、setInterval）</li>
+<li>浏览器事件处理线程（将click、touch放入事件队列中）
+        
+          <p class="article-more-link">
+            <a href="/2019/02/03/2019-2-3-js异步执行如何工作的/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/03/2019-2-3-js异步执行如何工作的/">
+    <time datetime="2019-02-03T04:08:16.000Z" class="entry-date">
+        2019-02-03
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2019-2-3-WebWorker" class="post-2019-2-3-WebWorker post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/02/03/2019-2-3-WebWorker/">WebWorker</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-WebWorker/" data-id="ckevc6d65000adkupoosrbgj5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>前面在《js异步执行如何工作的》一文中简单提到，因为js是单线程的，在如今这种高密度的计算中，显然有些吃力。于是，浏览器积极发展多线程，来弥补js单线程的不足。而Web Worker就是其中一种机制。<br>既然是一种多线程机制，那么它是怎么工作的呢？</li>
+<li>简单的说，Web Worker是运行在后台的。为什么这么说？js是一种单线程机制，那么其就有一个主线程。而主线程可以创建Worker线程，将一些任务分配给后者运行。那跟人家主线程相比，Web Worker可不就是运行在后台。</li>
+<li>更巧妙的是，Worker是独立于其他脚本的，不会影响页面的性能，跟主线程互不干扰。除了两者之间进行消息沟通。</li>
+<li>互不干扰的意思是不会被主线程上的活动给打断，比如主线程要进行用户点击、提交表单等等。不是不会进行通信的意思哦。</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/03/2019-2-3-WebWorker/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/03/2019-2-3-WebWorker/">
+    <time datetime="2019-02-03T04:03:42.000Z" class="entry-date">
+        2019-02-03
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebWorker/">WebWorker</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-2019-2-2-执行上下文变量提升" class="post-2019-2-2-执行上下文变量提升 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +270,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="cketxadno00099guprpqgt2jj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="ckevc6d6a000fdkupi2bnwcfv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -145,7 +335,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="cketxadlw00009gupzc6zaons" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="ckevc6d5w0002dkupwtp1ivi0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -203,7 +393,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/26/2019-2-1-原型及原型链/" data-id="cketxadmp00029gup34kkycjf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/26/2019-2-1-原型及原型链/" data-id="ckevc6d600005dkupkm8629tk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -287,23 +477,23 @@
       <ul>
         
           <li>
+            <a href="/2020/09/09/木易杨-Daily-157/">木易杨-Daily-157</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/09/MongoDB/">MongoDB</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/09/Redis/">Redis</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/08/木易杨-Daily-160/">木易杨-Daily-160</a>
           </li>
         
           <li>
             <a href="/2020/09/03/木易杨-Daily-155/">木易杨_Daily_155</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/02/木易杨-Daliy-156/">木易杨_Daliy_156</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/02/Flex/">Flex</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/02/CSS/">CSS</a>
           </li>
         
       </ul>

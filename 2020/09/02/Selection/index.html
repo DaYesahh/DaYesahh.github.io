@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="通过做文本的复制粘贴了解到这个属性，通过该机制操作选中的文本。参考MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection描述比较简单。
+获取选中的文本selection 对象const selection = ">
+  
 
   
   <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
@@ -15,15 +18,18 @@
   
   <title>Selection | DaYesahh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta name="description" content="通过做文本的复制粘贴了解到这个属性，通过该机制操作选中的文本。参考MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection描述比较简单。 获取选中的文本selection 对象const selection = window.getSelection();或者document.getSelection(); 文">
+<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Selection">
 <meta property="og:url" content="http://Dayeahh.github.io/2020/09/02/Selection/index.html">
 <meta property="og:site_name" content="DaYesahh的博客">
+<meta property="og:description" content="通过做文本的复制粘贴了解到这个属性，通过该机制操作选中的文本。参考MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection描述比较简单。 获取选中的文本selection 对象const selection = window.getSelection();或者document.getSelection(); 文">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-08T12:19:40.153Z">
+<meta property="og:updated_time" content="2020-09-15T12:10:27.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Selection">
+<meta name="twitter:description" content="通过做文本的复制粘贴了解到这个属性，通过该机制操作选中的文本。参考MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection描述比较简单。 获取选中的文本selection 对象const selection = window.getSelection();或者document.getSelection(); 文">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -79,13 +85,26 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Selection/" data-id="ckevc6d6u001cdkupkhirlmb8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Selection/" data-id="ckey7giev001ed0updlal02ly" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        
+        <p>通过做文本的复制粘贴了解到这个属性，通过该机制操作选中的文本。<br>参考MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection</a><br>描述比较简单。</p>
+<h2 id="获取选中的文本"><a href="#获取选中的文本" class="headerlink" title="获取选中的文本"></a>获取选中的文本</h2><h3 id="selection-对象"><a href="#selection-对象" class="headerlink" title="selection 对象"></a>selection 对象</h3><p>const selection = window.getSelection();或者document.getSelection();</p>
+<h3 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h3><ul>
+<li>MDN上写的是<code>selection.toString()</code>即可。这样拿的话，可以保留换行等一些符号，因为在某些网站中，会把换行处理成<code>&lt;br&gt;</code>，这样就拿可以保留来。</li>
+<li>如果通过下面这种方式拿，换行符会消失。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.getSelection().getRangeAt(<span class="number">0</span>).cloneContents().textContent</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="删除选中的文本"><a href="#删除选中的文本" class="headerlink" title="删除选中的文本"></a>删除选中的文本</h2><ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.getSelection().getRangeAt(<span class="number">0</span>).deleteContents()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
       
     </div><!-- .entry-content -->
 
@@ -146,6 +165,10 @@
       <ul>
         
           <li>
+            <a href="/2020/09/11/木易杨-Daily-154/">木易杨-Daily-154</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/09/木易杨-Daily-157/">木易杨-Daily-157</a>
           </li>
         
@@ -159,10 +182,6 @@
         
           <li>
             <a href="/2020/09/08/木易杨-Daily-160/">木易杨-Daily-160</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/03/木易杨-Daily-155/">木易杨_Daily_155</a>
           </li>
         
       </ul>

@@ -22,18 +22,18 @@ flex-shrink: 容器">
   
   <title>木易杨-Daily-154 | DaYesahh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在被放入容器之前的大小，它与widt">
+  <meta name="description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在主轴方向上的初始尺寸，比如flex">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="木易杨-Daily-154">
 <meta property="og:url" content="http://Dayeahh.github.io/2020/09/11/木易杨-Daily-154/index.html">
 <meta property="og:site_name" content="DaYesahh的博客">
-<meta property="og:description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在被放入容器之前的大小，它与widt">
+<meta property="og:description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在主轴方向上的初始尺寸，比如flex">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-11T12:16:42.168Z">
+<meta property="og:updated_time" content="2020-10-16T03:08:47.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="木易杨-Daily-154">
-<meta name="twitter:description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在被放入容器之前的大小，它与widt">
+<meta name="twitter:description" content="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思答：  flex 属性的含义是：用于指弹性子元素如何分配空间。 flex：flex-grow flex-shrink flex-basis flex-grow: 容器大于子元素的时候，子元素如何扩展 flex-shrink: 容器小于子元素的时候，子元素如何收缩 flex-basis: 子元素在主轴方向上的初始尺寸，比如flex">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -89,7 +89,7 @@ flex-shrink: 容器">
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/11/木易杨-Daily-154/" data-id="ckey7gif4001pd0up47zl1pew" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/11/木易杨-Daily-154/" data-id="ckgboipt0001wsoup1phzhd9n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -101,7 +101,7 @@ flex-shrink: 容器">
 <li>flex：flex-grow flex-shrink flex-basis<ul>
 <li>flex-grow: 容器大于子元素的时候，子元素如何扩展</li>
 <li>flex-shrink: 容器小于子元素的时候，子元素如何收缩</li>
-<li>flex-basis: 子元素在被放入容器之前的大小，它与width作用强弱对比如下：flex-basis(limited by minWidth and maxWidth) &gt; width</li>
+<li>flex-basis: 子元素在主轴方向上的初始尺寸，比如flex-direction: row;时为宽度，flex-direction为column的时候，则为高度。他的值有auto | number | inherit | initail，如果值为auto，则 width有更高的优先级。如果设置了其他值，则flex-basis有更高的优先级，具体为：flex-basis(limited by minWidth and maxWidth) &gt; width</li>
 </ul>
 </li>
 <li>所以意思是，当容器宽度多的时候，不会扩大。而宽度不够的时候，会等比缩小。且如果设置了宽度，则为width的值，如果没设置宽度，则为实际内容。</li>
@@ -125,6 +125,8 @@ flex-shrink: 容器">
     
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2020/10/16/木易杨-Daily-158/" rel="prev"><span class="meta-nav">←</span> 木易杨_Daily_158</a></span>
     
     
         <span class="nav-next"><a href="/2020/09/09/木易杨-Daily-157/" rel="next">木易杨-Daily-157 <span class="meta-nav">→</span></a></span>
@@ -165,6 +167,10 @@ flex-shrink: 容器">
       <ul>
         
           <li>
+            <a href="/2020/10/16/木易杨-Daily-158/">木易杨_Daily_158</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/11/木易杨-Daily-154/">木易杨-Daily-154</a>
           </li>
         
@@ -178,10 +184,6 @@ flex-shrink: 容器">
         
           <li>
             <a href="/2020/09/09/Redis/">Redis</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/08/木易杨-Daily-160/">木易杨-Daily-160</a>
           </li>
         
       </ul>

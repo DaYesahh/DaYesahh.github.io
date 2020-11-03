@@ -65,6 +65,185 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-函数的扩展" class="post-函数的扩展 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/05/06/函数的扩展/">函数的扩展</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/05/06/函数的扩展/" data-id="ckh1xjumt0023toupgeir0th7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>函数执行是先执行函数参数，再执行函数体</li>
+<li>如果函数参数使用了解构赋值、设置默认值、扩展运算符则不可以在函数体内显式设定为严格模式，否则会报错</li>
+<li><strong>“调用记录”</strong>，又称<strong>“调用帧”</strong>。用于保存调用位置和内部变量等信息。如果A调用了B，那么在A的调用帧上形成了B的调用帧，如果在B内部海调用了C，那么在B的上方又形成了C的调用帧，等到C的调用结束以后，将结果返回给B，C的调用帧才会消失。A、B、C的调用帧便形成了<strong>调用栈</strong></li>
+<li>函数拥有name属性，可以获取函数名。</li>
+</ul>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2>
+        
+          <p class="article-more-link">
+            <a href="/2019/05/06/函数的扩展/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/06/函数的扩展/">
+    <time datetime="2019-05-06T05:09:47.000Z" class="entry-date">
+        2019-05-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/es6/">es6</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数扩展/">函数扩展</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Promise" class="post-Promise post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/04/15/Promise/">Promise</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/04/15/Promise/" data-id="ckh1xjuls0013toupiamducxg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>异步编程，是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作），是<strong>对象</strong>，获取异步操作的消息。</p>
+<p>其特点如下：</p>
+<ul>
+<li>对象的状态不受外界影响。<code>Promise</code>对象代表一个<strong>异步操作</strong>，有三种状态：<code>pending(进行中)</code>、<code>fulfilled()已成功</code>和<code>rejected(已失败)</code>。注意：其状态只要异步操作才会使其改变！参考其名字！</li>
+<li>状态一旦改变，就不会再变，任何时候都可以得到这个结果。<code>Promise</code>对象状态改变，两种可能：从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。只要这两种情况发生，状态便凝固了，不会再改变！这时称为<code>resolved(已定型)</code>。如果改变已经发生，即使再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/15/Promise/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/04/15/Promise/">
+    <time datetime="2019-04-15T05:06:06.000Z" class="entry-date">
+        2019-04-15
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/es6/">es6</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise/">Promise</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-对象扩展" class="post-对象扩展 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/03/23/对象扩展/">对象扩展</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/03/23/对象扩展/" data-id="ckh1xjump001ytouper9pjis6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="属性相关"><a href="#属性相关" class="headerlink" title="属性相关"></a>属性相关</h2><h3 id="简洁表示"><a href="#简洁表示" class="headerlink" title="简洁表示"></a>简洁表示</h3><ul>
+<li>可直接写入变量和函数，作为属性和方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性简写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;x, y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;<span class="attr">x</span>: x, <span class="attr">y</span>: y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法简写，注意，只有方法的简写方式才会被js引擎确认对定义的是对象的方法</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  method() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  method: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 以下两种方式均为定义一个方法然后赋给foo属性</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    foo:<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">super</span>.foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    foo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.foo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/03/23/对象扩展/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/03/23/对象扩展/">
+    <time datetime="2019-03-23T04:44:33.000Z" class="entry-date">
+        2019-03-23
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/es6/">es6</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象扩展/">对象扩展</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-2019-2-11-CSS基础回顾之定位和文档流" class="post-2019-2-11-CSS基础回顾之定位和文档流 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +259,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/" data-id="ckgboipro0006soupl7lq6lna" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/2019-2-11-CSS基础回顾之定位和文档流/" data-id="ckh1xjujy0000toupxko641b8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -147,7 +326,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/双向数据绑定/" data-id="ckgboipt90022soupiynlq8uo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/26/双向数据绑定/" data-id="ckh1xjumo001wtoupmlx557fl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -205,7 +384,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/" data-id="ckgboiprs0009soup1w9kzzu5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/14/2019-2-14-CSS杂记/" data-id="ckh1xjukd0009toup3i4v1dy8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -271,7 +450,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/" data-id="ckgboips7000osoupy6rjh802" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-js异步执行如何工作的/" data-id="ckh1xjukb0008toupxpev9b7p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -335,7 +514,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-WebWorker/" data-id="ckgboips4000jsouptdf7uxv2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/03/2019-2-3-WebWorker/" data-id="ckh1xjukf000ctoupu43148u2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -395,7 +574,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="ckgboips9000psouph980heq1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/02/02/2019-2-2-执行上下文变量提升/" data-id="ckh1xjukm000htoupp8c7x5wk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -460,7 +639,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="ckgboipri0002soupjliurqhi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/31/2019-1-31-数组去重的方法整理/" data-id="ckh1xjuk90006toup68a2a6zt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -503,73 +682,10 @@
 
 
   
-    <article id="post-2019-2-1-原型及原型链" class="post-2019-2-1-原型及原型链 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/01/26/2019-2-1-原型及原型链/">原型及原型链</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2019/01/26/2019-2-1-原型及原型链/" data-id="ckgboiprc0000soup9lj1z66y" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>原型的根，即<code>Object.prototype</code>可以解释为<strong>共有属性对象</strong>。而对象中的<code>__proto__</code>是指向原型，则可以使用一些共有方法。</p>
-<h2 id="三大属性"><a href="#三大属性" class="headerlink" title="三大属性"></a>三大属性</h2><h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><ul>
-<li><p>虽然在js中一切皆对象，函数也是对象</p>
-</li>
-<li><p>但这里<code>prototype</code>是<strong>构造函数</strong>(不是实例函数哦)特有的属性，这个属性也是对象</p>
-</li>
-<li><p>这个对象就是调用构造函数而创建的实例的原型。后面会证明</p>
-</li>
-<li><p>举例：</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/01/26/2019-2-1-原型及原型链/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/01/26/2019-2-1-原型及原型链/">
-    <time datetime="2019-01-26T04:11:01.000Z" class="entry-date">
-        2019-01-26
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/js/">js</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链/">原型链</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -602,23 +718,23 @@
       <ul>
         
           <li>
+            <a href="/2020/11/03/木易杨-Daily-2/">木易杨-Daily-2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/03/React-组件/">React-组件</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/24/木易杨-Daily-148/">木易杨-Daily-148</a>
+          </li>
+        
+          <li>
             <a href="/2020/10/16/木易杨-Daily-158/">木易杨_Daily_158</a>
           </li>
         
           <li>
             <a href="/2020/09/11/木易杨-Daily-154/">木易杨-Daily-154</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/木易杨-Daily-157/">木易杨-Daily-157</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/MongoDB/">MongoDB</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/Redis/">Redis</a>
           </li>
         
       </ul>

@@ -65,6 +65,154 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-木易杨-Daily-2" class="post-木易杨-Daily-2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/11/03/木易杨-Daily-2/">木易杨-Daily-2</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/11/03/木易杨-Daily-2/" data-id="ckh1xjun5002itoupvv61c1ga" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="第-148-题：-‘1’-‘2’-‘3’-map-parseInt-what-amp-why"><a href="#第-148-题：-‘1’-‘2’-‘3’-map-parseInt-what-amp-why" class="headerlink" title="第 148 题：[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?"></a>第 148 题：[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?</h1><p>答案是 <code>[ 1, NaN, NaN ]</code><br>map中的方法是function(item, index, arr){}<br>在此处换成parseInt的话，传给parseInt的参数是item和index<br>而parseInt本身接收两个参数parseInt(string, radix)string为元素，radix为解析的基数<br>parseInt(‘1’, 0) //radix为0时，且string参数不以“0x”和“0”开头时，按照10为基数处理。这个时候返回1<br>parseInt(‘2’, 1) //基数为1（1进制）表示的数中，最大值小于2，所以无法解析，返回NaN<br>parseInt(‘3’, 2) //基数为2（2进制）表示的数中，最大值小于3，所以无法解析，返回NaN</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/11/03/木易杨-Daily-2/">
+    <time datetime="2020-11-03T12:00:39.000Z" class="entry-date">
+        2020-11-03
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-React-组件" class="post-React-组件 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/11/03/React-组件/">React-组件</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/11/03/React-组件/" data-id="ckh1xjum0001ftouprd0or535" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>React 的核心特征是“数据驱动视图”，用公式表达为：<code>UI = render(data)</code>或<code>UI = f(data)</code>;</p>
+<h2 id="组件的四大通信"><a href="#组件的四大通信" class="headerlink" title="组件的四大通信"></a>组件的四大通信</h2><h3 id="基于Props的单向数据流"><a href="#基于Props的单向数据流" class="headerlink" title="基于Props的单向数据流"></a>基于Props的单向数据流</h3><p>既然 props 是组件的入参，那么组件之间通过修改对方的入参来完成数据通信就是天经地义的事情了。不过，这个“修改”也是有原则的——你必须确保所有操作都在“单向数据流”这个前提下。</p>
+<p>所谓单向数据流，指的就是当前组件的 state 以 props 的形式流动时，只能流向组件树中比自己层级更低的组件。 比如在父-子组件这种嵌套关系中，只能由父组件传 props 给子组件，而不能反过来。<br>可以实现三种通信方式</p>
+<ul>
+<li>父子组件</li>
+<li>子父组件</li>
+<li>兄弟组件(父子 -&gt; 子父)<br>不适合进行多重传递</li>
+</ul>
+<h3 id="利用“发布-订阅”模式驱动数据流"><a href="#利用“发布-订阅”模式驱动数据流" class="headerlink" title="利用“发布-订阅”模式驱动数据流"></a>利用“发布-订阅”模式驱动数据流</h3><p>举例：</p>
+<ul>
+<li>socket.io</li>
+<li>Node中的EventEmitter</li>
+<li>vue.js中的EventBus</li>
+</ul>
+<p>优点：<br>监听事件的位置和触发事件的位置是不受限的</p>
+<p>发布-订阅模型 API 设计思路<br>通过前面的讲解，不难看出发布-订阅模式中有两个关键的动作：事件的监听（订阅）和事件的触发（发布），这两个动作自然而然地对应着两个基本的 API 方法。</p>
+<pre><code>on()：负责注册事件的监听器，指定事件触发时的回调函数。
+
+emit()：负责触发事件，可以通过传参使其在触发的时候携带数据 。</code></pre><p>最后，只进不出总是不太合理的，我们还要考虑一个 off() 方法，必要的时候用它来删除用不到的监听器：</p>
+<pre><code>off()：负责监听器的删除。</code></pre>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/11/03/React-组件/">
+    <time datetime="2020-11-03T11:17:07.000Z" class="entry-date">
+        2020-11-03
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-木易杨-Daily-148" class="post-木易杨-Daily-148 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/10/24/木易杨-Daily-148/">木易杨-Daily-148</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/10/24/木易杨-Daily-148/" data-id="ckh1xjumn001vtoupcca1ute5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="第-148-题：webpack-中-loader-和-plugin-的区别是什么"><a href="#第-148-题：webpack-中-loader-和-plugin-的区别是什么" class="headerlink" title="第 148 题：webpack 中 loader 和 plugin 的区别是什么"></a>第 148 题：webpack 中 loader 和 plugin 的区别是什么</h1><p>While loaders are used to transform certain types of modules, plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables.</p>
+<p>loaders是被用来转换一定类型的模块，而plugins被用来最优化操作尽可能更大范围的任务，像打包优化，静态资源管理和环境变量的注入等。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/10/24/木易杨-Daily-148/">
+    <time datetime="2020-10-24T13:23:25.000Z" class="entry-date">
+        2020-10-24
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-木易杨-Daily-158" class="post-木易杨-Daily-158 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -80,7 +228,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/10/16/木易杨-Daily-158/" data-id="ckgboipt50020soupe51zshtj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/10/16/木易杨-Daily-158/" data-id="ckh1xjumw0028toupp0lmjup2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -123,13 +271,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/11/木易杨-Daily-154/" data-id="ckgboipt0001wsoup1phzhd9n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/11/木易杨-Daily-154/" data-id="ckh1xjumv0027toupaqzmfpuc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="第-154-题：弹性盒子中-flex-0-1-auto-表示什么意思"><a href="#第-154-题：弹性盒子中-flex-0-1-auto-表示什么意思" class="headerlink" title="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思"></a>第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思</h2><p>答：</p>
+        <h1 id="第-154-题：弹性盒子中-flex-0-1-auto-表示什么意思"><a href="#第-154-题：弹性盒子中-flex-0-1-auto-表示什么意思" class="headerlink" title="第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思"></a>第 154 题：弹性盒子中 flex: 0 1 auto 表示什么意思</h1><p>答：</p>
 <ul>
 <li>flex 属性的含义是：用于指弹性子元素如何分配空间。</li>
 <li>flex：flex-grow flex-shrink flex-basis<ul>
@@ -176,7 +324,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/木易杨-Daily-157/" data-id="ckgboipt1001xsoupcqeiraku" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/木易杨-Daily-157/" data-id="ckh1xjumx002btouptt1lh3o8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -220,7 +368,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/MongoDB/" data-id="ckgboipsq001hsoup1okkzms6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/MongoDB/" data-id="ckh1xjulq0010toupjpjv3a6h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -262,7 +410,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/Redis/" data-id="ckgboipsu001nsoupdyv6hjjo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/09/Redis/" data-id="ckh1xjumj001ntoupaibfvau0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -309,7 +457,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/08/木易杨-Daily-160/" data-id="ckgboipt4001zsoup1p6emqln" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/08/木易杨-Daily-160/" data-id="ckh1xjun0002etouplgf77nc2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -356,7 +504,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/03/木易杨-Daily-155/" data-id="ckgboipt2001ysoupxs4z4ioi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/03/木易杨-Daily-155/" data-id="ckh1xjums0022toupmupqg2lq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -388,143 +536,10 @@
 
 
   
-    <article id="post-木易杨-Daliy-156" class="post-木易杨-Daliy-156 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2020/09/02/木易杨-Daliy-156/">木易杨_Daliy_156</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/木易杨-Daliy-156/" data-id="ckgboipt70021soupopn2pg8p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="第-156-题：求最终-left、right-的宽度"><a href="#第-156-题：求最终-left、right-的宽度" class="headerlink" title="第 156 题：求最终 left、right 的宽度"></a>第 156 题：求最终 left、right 的宽度</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"left"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"right"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style&gt;</span></span><br><span class="line"><span class="regexp">  * &#123;</span></span><br><span class="line"><span class="regexp">    padding: 0;</span></span><br><span class="line"><span class="regexp">    margin: 0;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .container &#123;</span></span><br><span class="line"><span class="regexp">    width: 600px;</span></span><br><span class="line"><span class="regexp">    height: 300px;</span></span><br><span class="line"><span class="regexp">    display: flex;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .left &#123;</span></span><br><span class="line"><span class="regexp">    flex: 1 2 300px;</span></span><br><span class="line"><span class="regexp">    background: red;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  .right &#123;</span></span><br><span class="line"><span class="regexp">    flex: 2 1 200px;</span></span><br><span class="line"><span class="regexp">    background: blue;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注：此题和 155 题 left、right 样式有些不同<br>因为300+200小于600，则flex-grow有效，需要计算剩余空间。而如果子元素的综合大于父元素时，需要使用flex-shrink来计算如果缩小。<br>剩余的空间：600 - (300 + 200) = 100。<br>子元素的 flex-grow 的值分别为 1，2， 剩余空间用3等分来分<br>100 / 3 = 33.3333333<br>所以 left = 300 + 1 * 33.33 = 333.33<br>right = 200 + 2 * 33.33 = 266.67</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/09/02/木易杨-Daliy-156/">
-    <time datetime="2020-09-02T12:04:08.000Z" class="entry-date">
-        2020-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Flex" class="post-Flex post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2020/09/02/Flex/">Flex</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/Flex/" data-id="ckgboiprw000csoupjbw70hwk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h1><h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/09/02/Flex/">
-    <time datetime="2020-09-02T11:48:27.000Z" class="entry-date">
-        2020-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-CSS" class="post-CSS post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2020/09/02/CSS/">CSS</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://Dayeahh.github.io/2020/09/02/CSS/" data-id="ckgboiprq0008soup8qdyu76v" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><p>被安排做了一段时间的ui，感觉css果然不是个简单的活。尤其是水平居中和垂直居中，真的是亘古不变的刚需。</p>
-<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><h4 id="子绝父相"><a href="#子绝父相" class="headerlink" title="子绝父相"></a>子绝父相</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">    position: <span class="string">'absolute'</span>,</span><br><span class="line">&#125;</span><br><span class="line">.son &#123;</span><br><span class="line">    position: <span class="string">'relative'</span>,</span><br><span class="line">    margin: <span class="string">'0 auto'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>#### </p>
-<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2020/09/02/CSS/">
-    <time datetime="2020-09-02T11:48:15.000Z" class="entry-date">
-        2020-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -557,23 +572,23 @@
       <ul>
         
           <li>
+            <a href="/2020/11/03/木易杨-Daily-2/">木易杨-Daily-2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/03/React-组件/">React-组件</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/24/木易杨-Daily-148/">木易杨-Daily-148</a>
+          </li>
+        
+          <li>
             <a href="/2020/10/16/木易杨-Daily-158/">木易杨_Daily_158</a>
           </li>
         
           <li>
             <a href="/2020/09/11/木易杨-Daily-154/">木易杨-Daily-154</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/木易杨-Daily-157/">木易杨-Daily-157</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/MongoDB/">MongoDB</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/09/Redis/">Redis</a>
           </li>
         
       </ul>
